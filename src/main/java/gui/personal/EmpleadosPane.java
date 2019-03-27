@@ -2,8 +2,8 @@ package gui.personal;
 
 import com.alee.laf.panel.WebPanel;
 import com.alee.laf.scroll.WebScrollPane;
-import gui.personal.filtros.puestos.PuestoCellEditor;
-import gui.personal.filtros.puestos.PuestoCellRenderer;
+import gui.personal.editors.puestos.PuestoCellEditor;
+import gui.personal.editors.puestos.PuestoCellRenderer;
 import gui.personal.util.TurnoCellEditor;
 import gui.personal.util.TurnoCellRenderer;
 import jpa.empleados.EmpleadoEntity;

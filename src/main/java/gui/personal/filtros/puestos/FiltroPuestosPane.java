@@ -6,6 +6,8 @@ import com.alee.laf.panel.WebPanel;
 import com.alee.laf.scroll.WebScrollPane;
 import com.alee.laf.splitpane.WebSplitPane;
 import gui.personal.editors.puestos.EditorPuestosFrame;
+import gui.personal.editors.puestos.SeccionCellEditor;
+import gui.personal.editors.puestos.SeccionCellRenderer;
 import jpa.puestos.PuestoEntity;
 import jpa.puestos.PuestoService;
 import jpa.secciones.SeccionEntity;
@@ -24,6 +26,8 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
 public class FiltroPuestosPane extends WebPanel {
@@ -130,6 +134,17 @@ public class FiltroPuestosPane extends WebPanel {
                 }
             }
         });
+        editor.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                switch(evt.getPropertyName()){
+                    case EditorPuestosFrame.UPDATE_EVENT:
+                        fillSecciones();
+                        fillPuestos();
+                        break;
+                }
+            }
+        });
     }
     private void configTable(){
         seccionModel.setColumnCount(2);
@@ -139,9 +154,6 @@ public class FiltroPuestosPane extends WebPanel {
         puestoModel.setColumnIdentifiers(new String[]{"","ID","NOMBRE","SECCION"});
         SeccionCellRenderer seccionCellRenderer=new SeccionCellRenderer();
         puestoTable.getColumn("SECCION").setCellRenderer(seccionCellRenderer);
-        //SeccionCellEditor seccionEditor=new SeccionCellEditor();
-        //puestoTable.getColumn("SECCION").setCellEditor(seccionEditor);
-//        updateSeccionEditor();
     }
     private void updateSeccionEditor(){
         SeccionCellEditor seccionEditor= (SeccionCellEditor) puestoTable.getColumn("SECCION").getCellEditor();
@@ -157,6 +169,7 @@ public class FiltroPuestosPane extends WebPanel {
             o[2]=entity.getNombre();
             seccionModel.addRow(o);
         }
+        revalidate();
     }
     public void fillPuestos(){
         Object o[];
@@ -169,6 +182,7 @@ public class FiltroPuestosPane extends WebPanel {
             o[3]=entity.getSeccion();
             puestoModel.addRow(o);
         }
+        revalidate();
     }
     private SeccionEntity getSelectedSeccion(){
         SeccionEntity entity=null;

@@ -47,4 +47,8 @@ public class PuestoService {
 	    TypedQuery query=em.createQuery("SELECT e FROM PuestoEntity e",PuestoEntity.class);
 	    return ((TypedQuery) query).getResultList();
     }
+	public List<PuestoEntity> findPuestosByIdSeccion(Long idseccion){
+		TypedQuery query=em.createQuery("SELECT e FROM PuestoEntity e WHERE e.seccion.id="+idseccion,PuestoEntity.class);
+		return ((TypedQuery)query).getResultList();
+	}
 }

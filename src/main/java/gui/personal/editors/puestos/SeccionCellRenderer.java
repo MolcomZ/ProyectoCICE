@@ -1,4 +1,4 @@
-package gui.personal.filtros.puestos;
+package gui.personal.editors.puestos;
 
 import jpa.secciones.SeccionEntity;
 
