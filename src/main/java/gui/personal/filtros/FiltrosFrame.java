@@ -3,6 +3,7 @@ package gui.personal.filtros;
 import com.alee.laf.button.WebButton;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.tabbedpane.WebTabbedPane;
+import gui.personal.filtros.ausencias.FiltroTiposAusenciaPane;
 import gui.personal.filtros.puestos.FiltroPuestosPane;
 import gui.personal.filtros.turnos.FiltroTurnosPane;
 import jpa.puestos.PuestoEntity;
@@ -23,6 +24,7 @@ public class FiltrosFrame {
     private WebTabbedPane tabbedPane;
     private FiltroPuestosPane filtroPuestosPane;
     private FiltroTurnosPane filtroTurnosPane;
+    private FiltroTiposAusenciaPane filtroTiposAusenciaPane;
     private WebButton closeButton;
 
     public FiltrosFrame(){
@@ -32,8 +34,10 @@ public class FiltrosFrame {
         tabbedPane=new WebTabbedPane();
         filtroPuestosPane=new FiltroPuestosPane();
         filtroTurnosPane=new FiltroTurnosPane();
+        filtroTiposAusenciaPane=new FiltroTiposAusenciaPane();
         tabbedPane.addTab("PUESTOS",filtroPuestosPane);
         tabbedPane.addTab("TURNOS",filtroTurnosPane);
+        tabbedPane.addTab("AUSENCIAS",filtroTiposAusenciaPane);
         closeButton=new WebButton("CERRAR");
 
         frame.add(tabbedPane,"GROW,WRAP");

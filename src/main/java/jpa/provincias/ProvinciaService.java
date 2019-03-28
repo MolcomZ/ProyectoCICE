@@ -15,10 +15,9 @@ public class ProvinciaService {
 	
 	public ProvinciaEntity createProvincia(Long id, String nombre, ComunidadEntity comunidad) {
 		ProvinciaEntity entity=new ProvinciaEntity();
-		//entity.setId(id);
 		entity.setNombre(nombre);
 		entity.setComunidad(comunidad);
-        em.getTransaction().begin();
+		em.getTransaction().begin();
 		em.persist(entity);
 		em.getTransaction().commit();
 		return entity;

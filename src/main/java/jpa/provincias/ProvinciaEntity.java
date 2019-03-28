@@ -12,7 +12,7 @@ public class ProvinciaEntity {
     private Long id;
     @Column(length = 45)
     private String nombre;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="idcomunidad")
     private ComunidadEntity comunidad;
 

@@ -16,7 +16,7 @@ public class EmpleadoEntity {
     @Column(name="apellido")
     private String apellido;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="idturno")
     private TurnoEntity turno;
 

@@ -14,11 +14,10 @@ public class LocalidadService {
 	}
 	
 	public LocalidadEntity createLocalidad(Long id, String nombre, ProvinciaEntity provincia) {
-		em.getTransaction().begin();
 		LocalidadEntity entity=new LocalidadEntity();
-		//entity.setId(id);
 		entity.setNombre(nombre);
 		entity.setProvincia(provincia);
+		em.getTransaction().begin();
 		em.persist(entity);
 		em.getTransaction().commit();
 		return entity;
