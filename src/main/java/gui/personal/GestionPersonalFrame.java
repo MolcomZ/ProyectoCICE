@@ -6,6 +6,7 @@ import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.tabbedpane.WebTabbedPane;
 import gui.PrincipalFrame;
 import gui.personal.filtros.FiltrosFrame;
+import gui.personal.gestion_empleado.GestionEmpleadoFrame;
 import jpa.secciones.SeccionService;
 import net.miginfocom.swing.MigLayout;
 import util.PropertiesManager;
@@ -36,6 +37,7 @@ public class GestionPersonalFrame implements PropertiesManager {
     private EmpleadosPane empleadosPane;
     private WebButton closeButton;
     private FiltrosFrame filtrosFrame;
+    private GestionEmpleadoFrame empleadosFrame;
 
     //PERSISTENCE
     private EntityManagerFactory EMF;
@@ -57,6 +59,7 @@ public class GestionPersonalFrame implements PropertiesManager {
         editButton=new WebButton("EDITAR");
         closeButton=new WebButton("CERRAR");
         filtrosFrame=new FiltrosFrame();
+        empleadosFrame=new GestionEmpleadoFrame();
 
         frame.add(filtersButton,"LEFT");
         frame.add(editButton,"RIGHT,WRAP");
@@ -89,6 +92,12 @@ public class GestionPersonalFrame implements PropertiesManager {
             @Override
             public void actionPerformed(ActionEvent e) {
                 filtrosFrame.showFrame();
+            }
+        });
+        editButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                empleadosFrame.showFrame();
             }
         });
         filtrosFrame.addPropertyChangeListener(new PropertyChangeListener() {
