@@ -7,6 +7,7 @@ import com.alee.laf.tabbedpane.WebTabbedPane;
 import gui.PrincipalFrame;
 import gui.personal.filtros.FiltrosFrame;
 import gui.personal.gestion_empleado.GestionEmpleadoFrame;
+import jpa.empleados.EmpleadoEntity;
 import jpa.secciones.SeccionService;
 import net.miginfocom.swing.MigLayout;
 import util.PropertiesManager;
@@ -97,6 +98,7 @@ public class GestionPersonalFrame implements PropertiesManager {
         editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                empleadosFrame.setEmpleado(empleadosPane.getSelectedEmpleado());
                 empleadosFrame.showFrame();
             }
         });

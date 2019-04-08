@@ -119,4 +119,17 @@ public class EmpleadosPane extends WebPanel {
 
         sorter.setRowFilter(RowFilter.andFilter(filters));
     }
+    public EmpleadoEntity getSelectedEmpleado(){
+        EmpleadoEntity entity=null;
+        Integer row=table.getSelectedRow();
+        if(row!=-1){
+            entity=new EmpleadoEntity();
+            entity.setId((Long) table.getValueAt(row,table.convertColumnIndexToView(0)));
+            entity.setNombre((String) table.getValueAt(row,table.convertColumnIndexToView(1)));
+            entity.setApellido((String) table.getValueAt(row,table.convertColumnIndexToView(2)));
+            entity.setTurno((TurnoEntity) table.getValueAt(row,table.convertColumnIndexToView(3)));
+            entity.setPuesto((PuestoEntity) table.getValueAt(row,table.convertColumnIndexToView(4)));
+        }
+        return entity;
+    }
 }

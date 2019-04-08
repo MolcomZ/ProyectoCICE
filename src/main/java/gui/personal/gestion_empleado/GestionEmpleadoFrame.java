@@ -7,6 +7,7 @@ import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.tabbedpane.WebTabbedPane;
 import com.alee.laf.text.WebTextField;
+import jpa.empleados.EmpleadoEntity;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -25,9 +26,11 @@ public class GestionEmpleadoFrame {
     private WebTextField nombreText;
     private WebTextField apellidoText;
 
-
     private WebTabbedPane tabbedPane;
+    private PuestoPane puestoPane;
     private WebButton closeButton;
+
+    private EmpleadoEntity empleado;
 
     public GestionEmpleadoFrame(){
         layout=new MigLayout("","[][][][GROW]","[][][GROW][]");
@@ -36,14 +39,15 @@ public class GestionEmpleadoFrame {
         idLabel=new WebLabel("ID:");
         idlockButton=new WebToggleButton(new ImageIcon(this.getClass().getResource("/Lock.png")));
         nombreLabel=new WebLabel("NOMBRE:");
-        apellidoLabel=new WebLabel("APELLIDO");
+        apellidoLabel=new WebLabel("APELLIDO:");
         idText=new WebTextField();
         idText.setEnabled(false);
         nombreText=new WebTextField();
         apellidoText=new WebTextField();
 
         tabbedPane=new WebTabbedPane();
-        tabbedPane.addTab("Puesto",null);
+        puestoPane=new PuestoPane();
+        tabbedPane.addTab("Puesto",puestoPane);
         closeButton=new WebButton("CERRAR");
 
         frame.add(idLabel);
@@ -55,6 +59,8 @@ public class GestionEmpleadoFrame {
         frame.add(apellidoText,"WIDTH 180,LEFT,WRAP");
         frame.add(tabbedPane,"GROW,WRAP,SPAN 4");
         frame.add(closeButton,"CELL 3 3,RIGHT");
+
+        fillEmpleadoData();
 
         frame.pack();
         initListeners();
@@ -74,5 +80,20 @@ public class GestionEmpleadoFrame {
     }
     public void showFrame(){
         frame.setVisible(true);
+    }
+    public void setEmpleado(EmpleadoEntity empleado){
+        if(empleado==null) {
+            WebOptionPane.showMessageDialog(frame,"No ha seleccionado ningún empleado,\nse creará uno nuevo.");
+        }
+        this.empleado=empleado;
+        fillEmpleadoData();
+    }
+    private void fillEmpleadoData(){
+        if(empleado!=null) {
+            idText.setText(empleado.getId().toString());
+            nombreText.setText(empleado.getNombre());
+            apellidoText.setText(empleado.getApellido());
+            puestoPane.setEmpleado(empleado);
+        }
     }
 }
