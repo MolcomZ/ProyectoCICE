@@ -21,23 +21,21 @@ import javax.persistence.Persistence;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class EmpleadosPane extends WebPanel {
+    public final static String TABLE_DOUBLE_CLICKED="Table double clicked";
+
     private MigLayout layout;
     private EmpleadosTable table;
     private DefaultTableModel model;
     private WebScrollPane scroll;
 
-    private EntityManagerFactory empleadoEMF;
-    private EntityManager empleadoEM;
     private EmpleadoService empleadoService;
-    private EntityManagerFactory turnoEMF;
-    private EntityManager turnoEM;
     private TurnoService turnoService;
-    private EntityManagerFactory puestoEMF;
-    private EntityManager puestoEM;
     private PuestoService puestoService;
 
     private EntityManagerFactory EMF;
@@ -52,46 +50,50 @@ public class EmpleadosPane extends WebPanel {
 
         this.add(scroll,"GROW");
 
-        //empleadoEMF=Persistence.createEntityManagerFactory("EmpleadoService");
-        //empleadoEM=empleadoEMF.createEntityManager();
         EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
         EM=EMF.createEntityManager();
         empleadoService=new EmpleadoService(EM);
         turnoService=new TurnoService(EM);
         puestoService=new PuestoService(EM);
-        //empleadoService=new EmpleadoService(empleadoEM);
-        //turnoEMF=Persistence.createEntityManagerFactory("TurnoService");
-        //turnoEM=turnoEMF.createEntityManager();
-        //turnoService=new TurnoService(turnoEM);
-        //puestoEMF=Persistence.createEntityManagerFactory("PuestoService");
-        //puestoEM=puestoEMF.createEntityManager();
-        //puestoService=new PuestoService(puestoEM);
 
         configTable();
         fillEmpleados();
+        initListeners();
+    }
+    private void initListeners(){
+        table.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if(e.getClickCount()==2){
+                    firePropertyChange(TABLE_DOUBLE_CLICKED,0,1);
+                }
+            }
+        });
     }
     private void configTable(){
         model.setColumnCount(4);
         model.setColumnIdentifiers(new String[]{"ID","NOMBRE","APELLIDOS","TURNO","PUESTO"});
         TurnoCellRenderer turnoCellRenderer=new TurnoCellRenderer();
         table.getColumn("TURNO").setCellRenderer(turnoCellRenderer);
-        TurnoCellEditor turnoEditor=new TurnoCellEditor();
-        turnoEditor.setList((ArrayList<TurnoEntity>) turnoService.findAllTurnos());
-        table.getColumn("TURNO").setCellEditor(turnoEditor);
+        //TurnoCellEditor turnoEditor=new TurnoCellEditor();
+        //turnoEditor.setList((ArrayList<TurnoEntity>) turnoService.findAllTurnos());
+        //table.getColumn("TURNO").setCellEditor(turnoEditor);
         
         
         PuestoCellRenderer puestoCellRenderer=new PuestoCellRenderer();
         table.getColumn("PUESTO").setCellRenderer(puestoCellRenderer);
-        PuestoCellEditor puestoEditor=new PuestoCellEditor();
-        puestoEditor.setList((ArrayList<PuestoEntity>) puestoService.findAllPuestos());
-        table.getColumn("PUESTO").setCellEditor(puestoEditor);
+        //PuestoCellEditor puestoEditor=new PuestoCellEditor();
+        //puestoEditor.setList((ArrayList<PuestoEntity>) puestoService.findAllPuestos());
+        //table.getColumn("PUESTO").setCellEditor(puestoEditor);
         
         //updateSeccionEditor();
     }
     private void fillEmpleados(){
         Object o[];
         model.setRowCount(0);
-        for(EmpleadoEntity entity:empleadoService.findAllEmpleadoes()){
+
+        for(EmpleadoEntity entity:empleadoService.findAllEmpleados()){
+            EM.refresh(entity);
             o=new Object[5];
             o[0]=entity.getId();
             o[1]=entity.getNombre();
@@ -131,5 +133,14 @@ public class EmpleadosPane extends WebPanel {
             entity.setPuesto((PuestoEntity) table.getValueAt(row,table.convertColumnIndexToView(4)));
         }
         return entity;
+    }
+    public void refresh(){
+        Integer row=table.getSelectedRow();
+        fillEmpleados();
+        if(table.getRowCount()>row){
+            table.setSelectedRow(row);
+        }else{
+            table.setSelectedRow(table.getRowCount());
+        }
     }
 }

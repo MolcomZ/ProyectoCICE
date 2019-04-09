@@ -15,6 +15,7 @@ import util.PropertiesManager;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +34,7 @@ public class GestionPersonalFrame implements PropertiesManager {
     private WebFrame frame;
     private MigLayout layout;
     private WebButton editButton;
+    private WebButton refreshButton;
     private WebButton filtersButton;
     private WebTabbedPane tabbedPane;
     private EmpleadosPane empleadosPane;
@@ -58,12 +60,14 @@ public class GestionPersonalFrame implements PropertiesManager {
         tabbedPane.addTab("ANTICIPOS",null);
         filtersButton=new WebButton("FILTROS");
         editButton=new WebButton("EDITAR");
+        refreshButton=new WebButton(new ImageIcon(getClass().getResource("/Refresh.png")));
         closeButton=new WebButton("CERRAR");
         filtrosFrame=new FiltrosFrame();
         empleadosFrame=new GestionEmpleadoFrame();
 
         frame.add(filtersButton,"LEFT");
-        frame.add(editButton,"RIGHT,WRAP");
+        frame.add(editButton,"RIGHT,SPLIT");
+        frame.add(refreshButton,"WRAP");
         frame.add(tabbedPane,"SPAN 2,GROW,WRAP");
         frame.add(closeButton,"CELL 1 2,RIGHT");
 
@@ -95,11 +99,27 @@ public class GestionPersonalFrame implements PropertiesManager {
                 filtrosFrame.showFrame();
             }
         });
+        empleadosPane.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if(evt.getPropertyName().equals(EmpleadosPane.TABLE_DOUBLE_CLICKED)){
+                    empleadosFrame.setEmpleado(empleadosPane.getSelectedEmpleado());
+                    empleadosFrame.showFrame();
+                }
+            }
+        });
+
         editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 empleadosFrame.setEmpleado(empleadosPane.getSelectedEmpleado());
                 empleadosFrame.showFrame();
+            }
+        });
+        refreshButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refresh();
             }
         });
         filtrosFrame.addPropertyChangeListener(new PropertyChangeListener() {
@@ -114,6 +134,17 @@ public class GestionPersonalFrame implements PropertiesManager {
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
+        empleadosFrame.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if(evt.getPropertyName().equals(empleadosFrame.DATA_CHANGED)){
+                    refresh();
+                }
+            }
+        });
+    }
+    private void refresh(){
+        empleadosPane.refresh();
     }
     private void updateFilters(){
         empleadosPane.updateFilters(filtrosFrame.getSelectedTurnos(),filtrosFrame.getSelectedPuestos());
@@ -137,7 +168,6 @@ public class GestionPersonalFrame implements PropertiesManager {
             );
         }
     }
-
     @Override
     public void saveProperties() {
         PrincipalFrame.establecePropiedad(LEFT,String.valueOf(frame.getBounds().x));

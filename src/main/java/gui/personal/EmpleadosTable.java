@@ -27,10 +27,8 @@ public class EmpleadosTable extends AutoSizeableTable {
     @Override
     public boolean isCellEditable(int row, int column) {
         switch (column){
-            case 0:
-                return false;
             default:
-                return true;
+                return false;
         }
     }
 }

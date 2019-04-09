@@ -20,7 +20,7 @@ public class EmpleadoEntity {
     @JoinColumn(name="idturno")
     private TurnoEntity turno;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="idpuesto")
     private PuestoEntity puesto;
 
