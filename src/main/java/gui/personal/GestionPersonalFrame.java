@@ -108,11 +108,19 @@ public class GestionPersonalFrame implements PropertiesManager {
                 }
             }
         });
-
         editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                empleadosFrame.setEmpleado(empleadosPane.getSelectedEmpleado());
+                EmpleadoEntity empleado=empleadosPane.getSelectedEmpleado();
+                if(empleado==null){
+                    if(WebOptionPane.showConfirmDialog(frame,"No ha seleccionado ningún empleado,\n¿Crear uno nuevo?.","Editar empleado",WebOptionPane.YES_NO_OPTION)==WebOptionPane.YES_OPTION){
+                        empleadosFrame.addEmpleado();
+                    }else{
+                        return;
+                    }
+                }else {
+                    empleadosFrame.setEmpleado(empleadosPane.getSelectedEmpleado());
+                }
                 empleadosFrame.showFrame();
             }
         });

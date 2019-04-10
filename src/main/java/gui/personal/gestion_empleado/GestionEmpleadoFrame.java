@@ -17,15 +17,13 @@ import jpa.secciones.SeccionService;
 import jpa.turnos.TurnoEntity;
 import jpa.turnos.TurnoService;
 import net.miginfocom.swing.MigLayout;
+import util.WebTextFieldEnterFocus;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
@@ -45,8 +43,8 @@ public class GestionEmpleadoFrame {
     private WebLabel nombreLabel;
     private WebLabel apellidoLabel;
     private WebTextField idText;
-    private WebTextField nombreText;
-    private WebTextField apellidoText;
+    private WebTextFieldEnterFocus nombreText;
+    private WebTextFieldEnterFocus apellidoText;
     private WebLabel turnoLabel;
     private WebComboBox turnoCombo;
 
@@ -78,8 +76,8 @@ public class GestionEmpleadoFrame {
         apellidoLabel=new WebLabel("APELLIDO:");
         idText=new WebTextField();
         idText.setEnabled(false);
-        nombreText=new WebTextField();
-        apellidoText=new WebTextField();
+        nombreText= new WebTextFieldEnterFocus();
+        apellidoText= new WebTextFieldEnterFocus();
         turnoLabel=new WebLabel("TURNO:");
         turnoCombo=new WebComboBox();
 
@@ -90,9 +88,7 @@ public class GestionEmpleadoFrame {
 
         frame.add(idLabel);
         frame.add(idText,"WIDTH 80,LEFT,SPLIT 2");
-        frame.add(idlockButton);
-        frame.add(addButton,"CELL 3 0,RIGHT,SPLIT");
-        frame.add(removeButton,"WRAP");
+        frame.add(idlockButton,"WRAP");
         frame.add(nombreLabel);
         frame.add(nombreText,"WIDTH 120,LEFT");
         frame.add(apellidoLabel);
@@ -100,6 +96,8 @@ public class GestionEmpleadoFrame {
         frame.add(turnoLabel);
         frame.add(turnoCombo,"WIDTH 120,LEFT,WRAP");
         frame.add(tabbedPane,"GROW,WRAP,SPAN 4");
+        frame.add(addButton,"CELL 0 4,LEFT,SPLIT 2");
+        frame.add(removeButton);
         frame.add(closeButton,"CELL 3 4,RIGHT");
 
         turnosMap=new HashMap<>();
@@ -155,6 +153,24 @@ public class GestionEmpleadoFrame {
                 }
             }
         });
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        nombreText.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                editEmpleado();
+            }
+        });
+        apellidoText.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                editEmpleado();
+            }
+        });
     }
     private void updateTurnos(){
         List<TurnoEntity> turnos;
@@ -172,9 +188,10 @@ public class GestionEmpleadoFrame {
     }
     public void setEmpleado(EmpleadoEntity empleado){
         if(empleado==null) {
-            WebOptionPane.showMessageDialog(frame,"No ha seleccionado ningún empleado,\nse creará uno nuevo.");
+            WebOptionPane.showMessageDialog(frame,"No hay ningún empleado a editar.","Error",WebOptionPane.ERROR_MESSAGE);
+            return;
         }
-        this.empleado=empleado;
+        this.empleado = empleado;
         fillEmpleadoData();
     }
     private void fillEmpleadoData(){
@@ -196,16 +213,18 @@ public class GestionEmpleadoFrame {
         try{
             id=Long.parseLong(idText.getText());
             empleadoService.removeEmpleado(id);
-            WebOptionPane.showMessageDialog(frame,"Empleado eliminado.");
-            frame.dispose();
-            frame.firePropertyChange(DATA_CHANGED,1,0);
         }catch(NumberFormatException e){
             WebOptionPane.showMessageDialog(frame,"El ID no es válido.");
+            return;
         }catch(Exception e){
             WebOptionPane.showMessageDialog(frame,"Error al eliminar el empleado.\nPara eliminar un empleado, éste,\nno debe tener datos en otras tablas.");
+            return;
         }
+        WebOptionPane.showMessageDialog(frame,"Empleado eliminado.");
+        frame.firePropertyChange(DATA_CHANGED,1,0);
+        frame.dispose();
     }
-    private void addEmpleado(){
+    public void addEmpleado(){
         TurnoService turnoService=new TurnoService(EM);
         PuestoService puestoService=new PuestoService(EM);
         TurnoEntity turno=new TurnoEntity();
