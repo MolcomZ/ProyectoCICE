@@ -44,6 +44,19 @@ public class EmpleadoService {
         }
         em.getTransaction().commit();
     }
+	public void updateEmpleado(Long id,Long newid,String nombre,String apellido,TurnoEntity turno,PuestoEntity puesto){
+		em.getTransaction().begin();
+		EmpleadoEntity entity=em.find(EmpleadoEntity.class,id);
+		if(entity!=null){
+		    entity.setId(newid);
+			entity.setNombre(nombre);
+			entity.setApellido(apellido);
+			entity.setTurno(turno);
+			entity.setPuesto(puesto);
+			em.persist(entity);
+		}
+		em.getTransaction().commit();
+	}
     public List<EmpleadoEntity> findAllEmpleados(){
 	    TypedQuery query=em.createQuery("SELECT e FROM EmpleadoEntity e",EmpleadoEntity.class);
 	    return ((TypedQuery) query).getResultList();

@@ -1,19 +1,15 @@
 package gui.personal.gestion_empleado;
 
 import com.alee.laf.button.WebButton;
-import com.alee.laf.button.WebToggleButton;
 import com.alee.laf.combobox.WebComboBox;
 import com.alee.laf.label.WebLabel;
 import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.tabbedpane.WebTabbedPane;
-import com.alee.laf.text.WebTextField;
 import jpa.empleados.EmpleadoEntity;
 import jpa.empleados.EmpleadoService;
 import jpa.puestos.PuestoEntity;
 import jpa.puestos.PuestoService;
-import jpa.secciones.SeccionEntity;
-import jpa.secciones.SeccionService;
 import jpa.turnos.TurnoEntity;
 import jpa.turnos.TurnoService;
 import net.miginfocom.swing.MigLayout;
@@ -23,26 +19,36 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
-import java.util.ArrayList;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 public class GestionEmpleadoFrame {
+    //PROPERTIES CONSTANTS
+    public static final String PROPERTY_LEFT="PROPERTY_LEFT";
+    public static final String PROPERTY_TOP="PROPERTY_TOP";
+    public static final String PROPERTY_WIDTH="PROPERTY_WIDTH";
+    public static final String PROPERTY_HEIGHT="PROPERTY_HEIGHT";
+
     public static final String DATA_CHANGED="Data changed";
     private MigLayout layout;
     private WebFrame frame;
 
     private WebLabel idLabel;
-    private WebToggleButton idlockButton;
+    //private WebToggleButton idlockButton;
     private WebButton addButton;
     private WebButton removeButton;
     private WebLabel nombreLabel;
     private WebLabel apellidoLabel;
-    private WebTextField idText;
+    private WebTextFieldEnterFocus idText;
     private WebTextFieldEnterFocus nombreText;
     private WebTextFieldEnterFocus apellidoText;
     private WebLabel turnoLabel;
@@ -69,15 +75,18 @@ public class GestionEmpleadoFrame {
         frame=new WebFrame("Gestión empleado");
         frame.setLayout(layout);
         idLabel=new WebLabel("ID:");
-        idlockButton=new WebToggleButton(new ImageIcon(this.getClass().getResource("/Lock.png")));
+        //idlockButton=new WebToggleButton(new ImageIcon(this.getClass().getResource("/Lock.png")));
         addButton=new WebButton(new ImageIcon(getClass().getResource("/Add.png")));
         removeButton=new WebButton(new ImageIcon(getClass().getResource("/Delete.png")));
         nombreLabel=new WebLabel("NOMBRE:");
         apellidoLabel=new WebLabel("APELLIDO:");
-        idText=new WebTextField();
+        idText= new WebTextFieldEnterFocus();
+        idText.setInputVerifier(new idVerifier());
         idText.setEnabled(false);
         nombreText= new WebTextFieldEnterFocus();
+        nombreText.setInputVerifier(new nombreVerifier());
         apellidoText= new WebTextFieldEnterFocus();
+        apellidoText.setInputVerifier(new apellidoVerifier());
         turnoLabel=new WebLabel("TURNO:");
         turnoCombo=new WebComboBox();
 
@@ -87,8 +96,8 @@ public class GestionEmpleadoFrame {
         closeButton=new WebButton("CERRAR");
 
         frame.add(idLabel);
-        frame.add(idText,"WIDTH 80,LEFT,SPLIT 2");
-        frame.add(idlockButton,"WRAP");
+        frame.add(idText,"WIDTH 80,LEFT,SPLIT 2,WRAP");
+        //frame.add(idlockButton,"WRAP");
         frame.add(nombreLabel);
         frame.add(nombreText,"WIDTH 120,LEFT");
         frame.add(apellidoLabel);
@@ -102,7 +111,6 @@ public class GestionEmpleadoFrame {
 
         turnosMap=new HashMap<>();
 
-
         EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
         EM=EMF.createEntityManager();
         empleadoService=new EmpleadoService(EM);
@@ -114,6 +122,7 @@ public class GestionEmpleadoFrame {
         initListeners();
     }
     public void initListeners(){
+/*
         idlockButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -125,6 +134,7 @@ public class GestionEmpleadoFrame {
                 }
             }
         });
+*/
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -159,6 +169,19 @@ public class GestionEmpleadoFrame {
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                saveProperties();
+                puestoPane.saveProperties();
+            }
+        });
+        idText.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusLost(FocusEvent e) {
+                editEmpleado();
+            }
+        });
         nombreText.addFocusListener(new FocusAdapter() {
             @Override
             public void focusLost(FocusEvent e) {
@@ -183,6 +206,8 @@ public class GestionEmpleadoFrame {
         }
     }
     public void showFrame(){
+        loadProperties();
+        puestoPane.loadProperties();
         frame.setVisible(true);
         userEditing=true;
     }
@@ -259,13 +284,87 @@ public class GestionEmpleadoFrame {
             apellido=apellidoText.getText();
             puesto=puestoPane.getPuesto();
             turno=getTurno();
-            empleadoService.updateEmpleado(id,nombre,apellido,turno,puesto);
+            empleadoService.updateEmpleado(empleado.getId(),id,nombre,apellido,turno,puesto);
             frame.firePropertyChange(DATA_CHANGED,1,0);
         }catch(NumberFormatException e){
             WebOptionPane.showMessageDialog(frame,"El ID no es válido.");
+        }catch(Exception e){
+            WebOptionPane.showMessageDialog(frame,"Error al actualizar el registro.");
         }
     }
     public void addPropertyChangeListener(PropertyChangeListener listener){
         frame.addPropertyChangeListener(listener);
+    }
+    private void loadProperties(){
+        int l,t,w,h,sp;
+        try {
+            FileInputStream is=new FileInputStream(getClass().getSimpleName()+".xml");
+            Properties properties=new Properties();
+            properties.loadFromXML(is);
+            try{
+                l=Integer.parseInt(properties.getProperty(PROPERTY_LEFT));
+                t=Integer.parseInt(properties.getProperty(PROPERTY_TOP));
+                w=Integer.parseInt(properties.getProperty(PROPERTY_WIDTH));
+                h=Integer.parseInt(properties.getProperty(PROPERTY_HEIGHT));
+                frame.setBounds(l,t,w,h);
+            }catch (NumberFormatException e){
+            }
+            is.close();
+        } catch (IOException e) {
+            WebOptionPane.showMessageDialog(frame,"Error al cargar las propiedades.","Error",WebOptionPane.WARNING_MESSAGE);
+        }
+    }
+    private void saveProperties(){
+        Rectangle bounds;
+        try {
+            FileOutputStream os=new FileOutputStream(getClass().getSimpleName()+".xml");
+            Properties properties=new Properties();
+            bounds=frame.getBounds();
+            properties.setProperty(PROPERTY_LEFT,String.valueOf(bounds.x));
+            properties.setProperty(PROPERTY_TOP,String.valueOf(bounds.y));
+            properties.setProperty(PROPERTY_WIDTH,String.valueOf(bounds.width));
+            properties.setProperty(PROPERTY_HEIGHT,String.valueOf(bounds.height));
+            properties.storeToXML(os,null);
+            os.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private class nombreVerifier extends InputVerifier {
+        @Override
+        public boolean verify(JComponent input) {
+            String text=((WebTextFieldEnterFocus)input).getText();
+            if(text.length()>20){
+                WebOptionPane.showMessageDialog(input,"Máximo 20 caracteres.\nIntroducidos "+text.length()+".");
+                return false;
+            }else{
+                return true;
+            }
+        }
+    }
+    private class apellidoVerifier extends InputVerifier {
+        @Override
+        public boolean verify(JComponent input) {
+            String text=((WebTextFieldEnterFocus)input).getText();
+            if(text.length()>50){
+                WebOptionPane.showMessageDialog(input,"Máximo 50 caracteres.\nIntroducidos "+text.length()+".");
+                return false;
+            }else{
+                return true;
+            }
+        }
+    }
+    private class idVerifier extends InputVerifier {
+        @Override
+        public boolean verify(JComponent input) {
+            String text = ((WebTextFieldEnterFocus) input).getText();
+            try {
+                Long.parseLong(text);
+            } catch (NumberFormatException e) {
+                WebOptionPane.showMessageDialog(input, "No es un número válido.");
+                return false;
+            }
+            return true;
+        }
     }
 }

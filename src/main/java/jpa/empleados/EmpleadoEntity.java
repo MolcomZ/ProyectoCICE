@@ -11,9 +11,9 @@ public class EmpleadoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="nombre")
+    @Column(name="nombre",length = 20)
     private String nombre;
-    @Column(name="apellido")
+    @Column(name="apellido",length=50)
     private String apellido;
 
     @ManyToOne

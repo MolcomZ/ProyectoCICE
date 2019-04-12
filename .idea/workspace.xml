@@ -4,13 +4,38 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java" line="210" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a244d8ce-f048-4498-aa01-297dc278a6ea" name="Default" comment="Varios avances...">
+    <list default="true" id="a244d8ce-f048-4498-aa01-297dc278a6ea" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/properties.xml" beforeDir="false" afterPath="$PROJECT_DIR$/properties.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/GestionLocalidadesFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/GestionLocalidadesFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/GestionPersonalFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/GestionPersonalFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestoPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestoPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/PropertiesManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$4.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jpa/empleados/EmpleadoEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jpa/empleados/EmpleadoEntity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/jpa/empleados/EmpleadoService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jpa/empleados/EmpleadoService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/util/PropertiesManager.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -26,14 +51,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GestionEmpleadoFrame.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GestionEmpleadoFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="158" column="88" selection-start-line="158" selection-start-column="88" selection-end-line="158" selection-end-column="88" />
+            <state relative-caret-position="228">
+              <caret line="212" column="5" lean-forward="true" selection-start-line="212" selection-start-column="5" selection-end-line="212" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#6300#6487#0" expanded="true" />
+                <element signature="e#6486#6487#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PrincipalFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6280">
+              <caret line="384" column="4" selection-start-line="363" selection-start-column="4" selection-end-line="384" selection-end-column="4" />
+              <folding>
+                <element signature="e#6471#6791#0" expanded="true" />
+                <element signature="e#6790#6791#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EmpleadoEntity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -50,32 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebTextField.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/de/sciss/weblaf-ui/1.28/weblaf-ui-1.28.jar!/com/alee/laf/text/WebTextField.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="32" column="44" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JTextField.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_102/src.zip!/javax/swing/JTextField.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9620">
-              <caret line="481" column="28" selection-start-line="481" selection-start-column="20" selection-end-line="481" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PuestoPane.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PuestoPane.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestoPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="94" selection-start-line="94" selection-end-line="94" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="408">
+              <caret line="217" column="10" selection-start-line="217" selection-start-column="10" selection-end-line="217" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -83,12 +111,16 @@
       <file leaf-file-name="GestionPersonalFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/GestionPersonalFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="141" column="88" lean-forward="true" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="88" />
+            <state relative-caret-position="-46">
+              <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5865#5866#0" expanded="true" />
-                <element signature="e#5904#5905#0" expanded="true" />
+                <element signature="e#3636#3637#0" expanded="true" />
+                <element signature="e#3692#3693#0" expanded="true" />
+                <element signature="e#5054#5055#0" expanded="true" />
+                <element signature="e#5095#5096#0" expanded="true" />
+                <element signature="e#5273#5274#0" expanded="true" />
+                <element signature="e#5320#5321#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,12 +129,8 @@
       <file leaf-file-name="EmpleadosPane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/EmpleadosPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
+            <state relative-caret-position="1420">
               <caret line="95" selection-start-line="95" selection-end-line="95" />
-              <folding>
-                <element signature="e#2038#2283#0" expanded="true" />
-                <element signature="e#2282#2283#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -110,17 +138,8 @@
       <file leaf-file-name="EmpleadoService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
-              <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmpleadosTable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/EmpleadosTable.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="820">
+              <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -128,9 +147,26 @@
       <file leaf-file-name="GestionLocalidadesFrame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/GestionLocalidadesFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2000">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
+            <state relative-caret-position="108">
+              <caret line="282" column="84" selection-start-line="282" selection-start-column="84" selection-end-line="282" selection-end-column="84" />
               <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#8163#8164#0" expanded="true" />
+                <element signature="e#8209#8210#0" expanded="true" />
+                <element signature="e#8371#8372#0" expanded="true" />
+                <element signature="e#8420#8421#0" expanded="true" />
+                <element signature="e#8579#8580#0" expanded="true" />
+                <element signature="e#8625#8626#0" expanded="true" />
+                <element signature="e#8787#8788#0" expanded="true" />
+                <element signature="e#8836#8837#0" expanded="true" />
+                <element signature="e#8995#8996#0" expanded="true" />
+                <element signature="e#9041#9042#0" expanded="true" />
+                <element signature="e#9203#9204#0" expanded="true" />
+                <element signature="e#9252#9253#0" expanded="true" />
+                <element signature="e#9405#9406#0" expanded="true" />
+                <element signature="e#9445#9446#0" expanded="true" />
+                <element signature="e#11440#11602#0" expanded="true" />
+                <element signature="e#11601#11602#0" expanded="true" />
                 <element signature="e#14226#15000#0" />
                 <element signature="e#15005#15840#0" />
               </folding>
@@ -197,9 +233,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/gui/personal/TurnoTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/personal/TurnoCellEditor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/personal/TurnoCellRenderer.java" />
         <option value="$PROJECT_DIR$/src/main/java/jpa/turnos/TurnoEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/PuestoCellRenderer.java" />
         <option value="$PROJECT_DIR$/src/main/java/jpa/puestos/PuestoEntity.java" />
@@ -217,7 +250,6 @@
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/editors/EditorTurnosFrame.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence_backup.xml" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/filtros/turnos/FiltroTurnosPane.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/GestionLocalidadesFrame.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/editors/turnos/EditorTurnosFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/jpa/secciones/SeccionEntity.java" />
@@ -240,13 +272,17 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/SeccionesTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestosTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/EmpleadosTable.java" />
-        <option value="$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestoPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/EmpleadosPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/WebTextFieldEnterFocus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/IPropertiesManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/PropertiesManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/GestionPersonalFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/GestionLocalidadesFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestoPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java" />
       </list>
     </option>
@@ -272,6 +308,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -320,16 +357,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-              <item name="personal" type="462c0819:PsiDirectoryNode" />
-              <item name="gestion_empleado" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProyectoCICE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProyectoCICE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -343,7 +370,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -500,12 +526,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554838604294</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Varios avances...">
+      <created>1554922023506</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1554922023506</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -516,11 +548,12 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32962447" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39360222" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.39360222" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25100672" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25771812" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32962447" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
@@ -533,7 +566,6 @@
       <window_info anchor="right" x="0" y="0" width="337" height="678" id="Documentation" order="8" side_tool="true" weight="0.3295302" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32962447" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -553,24 +585,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/editors/turnos/EditorTurnosTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProyectoCICE.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence_backup.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/filtros/turnos/FiltroTurnosPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
           <caret line="53" column="61" selection-start-line="53" selection-start-column="61" selection-end-line="53" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -724,10 +742,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="73" selection-start-line="73" selection-end-line="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2510#2511#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -806,34 +820,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/EmpleadosTable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
+        <state relative-caret-position="580">
           <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestoPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -851,6 +841,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/EmpleadosPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1420">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/util/WebTextFieldEnterFocus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -861,47 +858,112 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="50" column="30" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/jpa/empleados/EmpleadoEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/IPropertiesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6280">
+          <caret line="384" column="4" selection-start-line="363" selection-start-column="4" selection-end-line="384" selection-end-column="4" />
+          <folding>
+            <element signature="e#6471#6791#0" expanded="true" />
+            <element signature="e#6790#6791#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/PropertiesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#312#313#0" expanded="true" />
+            <element signature="e#337#338#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/GestionLocalidadesFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2000">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        <state relative-caret-position="108">
+          <caret line="282" column="84" selection-start-line="282" selection-start-column="84" selection-end-line="282" selection-end-column="84" />
           <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8163#8164#0" expanded="true" />
+            <element signature="e#8209#8210#0" expanded="true" />
+            <element signature="e#8371#8372#0" expanded="true" />
+            <element signature="e#8420#8421#0" expanded="true" />
+            <element signature="e#8579#8580#0" expanded="true" />
+            <element signature="e#8625#8626#0" expanded="true" />
+            <element signature="e#8787#8788#0" expanded="true" />
+            <element signature="e#8836#8837#0" expanded="true" />
+            <element signature="e#8995#8996#0" expanded="true" />
+            <element signature="e#9041#9042#0" expanded="true" />
+            <element signature="e#9203#9204#0" expanded="true" />
+            <element signature="e#9252#9253#0" expanded="true" />
+            <element signature="e#9405#9406#0" expanded="true" />
+            <element signature="e#9445#9446#0" expanded="true" />
+            <element signature="e#11440#11602#0" expanded="true" />
+            <element signature="e#11601#11602#0" expanded="true" />
             <element signature="e#14226#15000#0" />
             <element signature="e#15005#15840#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/EmpleadosPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="95" selection-start-line="95" selection-end-line="95" />
-          <folding>
-            <element signature="e#2038#2283#0" expanded="true" />
-            <element signature="e#2282#2283#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/GestionPersonalFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="141" column="88" lean-forward="true" selection-start-line="141" selection-start-column="16" selection-end-line="141" selection-end-column="88" />
+        <state relative-caret-position="-46">
+          <caret line="105" column="40" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5865#5866#0" expanded="true" />
-            <element signature="e#5904#5905#0" expanded="true" />
+            <element signature="e#3636#3637#0" expanded="true" />
+            <element signature="e#3692#3693#0" expanded="true" />
+            <element signature="e#5054#5055#0" expanded="true" />
+            <element signature="e#5095#5096#0" expanded="true" />
+            <element signature="e#5273#5274#0" expanded="true" />
+            <element signature="e#5320#5321#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="158" column="88" selection-start-line="158" selection-start-column="88" selection-end-line="158" selection-end-column="88" />
+        <state relative-caret-position="228">
+          <caret line="212" column="5" lean-forward="true" selection-start-line="212" selection-start-column="5" selection-end-line="212" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6300#6487#0" expanded="true" />
+            <element signature="e#6486#6487#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestoPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="217" column="10" selection-start-line="217" selection-start-column="10" selection-end-line="217" selection-end-column="10" />
         </state>
       </provider>
     </entry>

@@ -4,13 +4,11 @@ import com.alee.laf.button.WebButton;
 import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.tabbedpane.WebTabbedPane;
-import gui.PrincipalFrame;
 import gui.personal.filtros.FiltrosFrame;
 import gui.personal.gestion_empleado.GestionEmpleadoFrame;
 import jpa.empleados.EmpleadoEntity;
 import jpa.secciones.SeccionService;
 import net.miginfocom.swing.MigLayout;
-import util.PropertiesManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -23,13 +21,17 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
 
-public class GestionPersonalFrame implements PropertiesManager {
-    public static final String LEFT="GestionPersonalFrame.LEFT";
-    public static final String TOP="GestionPersonalFrame.TOP";
-    public static final String WIDTH="GestionPersonalFrame.WIDTH";
-    public static final String HEIGHT="GestionPersonalFrame.HEIGHT";
-    public static final String PUESTOSCOLLAPSE="GestionPersonalFrame.PUESTOSCOLLAPSE";
+public class GestionPersonalFrame{
+    public static final String PROPERTY_LEFT="PROPERTY_LEFT";
+    public static final String PROPERTY_TOP="PROPERTY_TOP";
+    public static final String PROPERTY_WIDTH="PROPERTY_WIDTH";
+    public static final String PROPERTY_HEIGHT="PROPERTY_HEIGHT";
+    public static final String PROPERTY_PUESTOSCOLLAPSE="PROPERTY_PUESTOSCOLLAPSE";
 
     private WebFrame frame;
     private MigLayout layout;
@@ -159,28 +161,39 @@ public class GestionPersonalFrame implements PropertiesManager {
         //empleadosPane.updateFilters(filtroTurnosPane.getSelectedItems(),filtroPuestosPane.getSelectedItems());
     }
 
-    @Override
-    public void loadProperties() {
-        Integer x,y,width,height;
+    private void loadProperties(){
+        int l,t,w,h,sp;
         try {
-            x=Integer.parseInt(PrincipalFrame.obtienePropiedad(LEFT));
-            y=Integer.parseInt(PrincipalFrame.obtienePropiedad(TOP));
-            width=Integer.parseInt(PrincipalFrame.obtienePropiedad(WIDTH));
-            height=Integer.parseInt(PrincipalFrame.obtienePropiedad(HEIGHT));
-            frame.setBounds(x,y,width,height);
-        } catch (Exception e) {
-            WebOptionPane.showMessageDialog(frame,
-                    "Error al cargar las propiedades de la ventana.",
-                    "Error",
-                    WebOptionPane.WARNING_MESSAGE
-            );
+            FileInputStream is=new FileInputStream(getClass().getSimpleName()+".xml");
+            Properties properties=new Properties();
+            properties.loadFromXML(is);
+            try{
+                l=Integer.parseInt(properties.getProperty(PROPERTY_LEFT));
+                t=Integer.parseInt(properties.getProperty(PROPERTY_TOP));
+                w=Integer.parseInt(properties.getProperty(PROPERTY_WIDTH));
+                h=Integer.parseInt(properties.getProperty(PROPERTY_HEIGHT));
+                frame.setBounds(l,t,w,h);
+            }catch (NumberFormatException e){
+            }
+            is.close();
+        } catch (IOException e) {
+            WebOptionPane.showMessageDialog(frame,"Error al cargar las propiedades.","Error",WebOptionPane.WARNING_MESSAGE);
         }
     }
-    @Override
-    public void saveProperties() {
-        PrincipalFrame.establecePropiedad(LEFT,String.valueOf(frame.getBounds().x));
-        PrincipalFrame.establecePropiedad(TOP,String.valueOf(frame.getBounds().y));
-        PrincipalFrame.establecePropiedad(WIDTH,String.valueOf(frame.getBounds().width));
-        PrincipalFrame.establecePropiedad(HEIGHT,String.valueOf(frame.getBounds().height));
+    private void saveProperties(){
+        Rectangle bounds;
+        try {
+            FileOutputStream os=new FileOutputStream(getClass().getSimpleName()+".xml");
+            Properties properties=new Properties();
+            bounds=frame.getBounds();
+            properties.setProperty(PROPERTY_LEFT,String.valueOf(bounds.x));
+            properties.setProperty(PROPERTY_TOP,String.valueOf(bounds.y));
+            properties.setProperty(PROPERTY_WIDTH,String.valueOf(bounds.width));
+            properties.setProperty(PROPERTY_HEIGHT,String.valueOf(bounds.height));
+            properties.storeToXML(os,null);
+            os.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,7 +1,9 @@
 package gui.personal.gestion_empleado;
 
 import com.alee.laf.label.WebLabel;
+import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.panel.WebPanel;
+import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.scroll.WebScrollPane;
 import com.alee.laf.splitpane.WebSplitPane;
 import com.alee.laf.table.WebTable;
@@ -20,10 +22,21 @@ import javax.persistence.Persistence;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 public class PuestoPane extends WebPanel {
+    public static final String PROPERTY_SPLIT_POSITION="PROPERTY_SPLIT_POSITION";
+    public static final String PROPERTY_TABLE1_COLUMN1_WIDTH="PROPERTY_TABLE1_COLUMN1_WIDTH";
+    public static final String PROPERTY_TABLE2_COLUMN1_WIDTH="PROPERTY_TABLE2_COLUMN1_WIDTH";
+
     public static final String PUESTO_CHANGED="Puesto changed";
     private MigLayout layout;
     private WebLabel puestoLabel;
@@ -182,4 +195,38 @@ public class PuestoPane extends WebPanel {
         }
         return puesto;
     }
+    public void loadProperties(){
+        int split,table1col1,table2col1;
+        try {
+            FileInputStream is=new FileInputStream(getClass().getSimpleName()+".xml");
+            Properties properties=new Properties();
+            properties.loadFromXML(is);
+            try{
+                split=Integer.parseInt(properties.getProperty(PROPERTY_SPLIT_POSITION));
+                table1col1=Integer.parseInt(properties.getProperty(PROPERTY_TABLE1_COLUMN1_WIDTH));
+                table2col1=Integer.parseInt(properties.getProperty(PROPERTY_TABLE2_COLUMN1_WIDTH));
+                this.split.setDividerLocation(split);
+                seccionesTable.getColumn("ID").setWidth(table1col1);
+                puestosTable.getColumn("ID").setWidth(table2col1);
+            }catch (NumberFormatException e){
+            }
+            is.close();
+        } catch (IOException e) {
+            WebOptionPane.showMessageDialog(this,"Error al cargar las propiedades.","Error",WebOptionPane.WARNING_MESSAGE);
+        }
+    }
+    public void saveProperties(){
+        try {
+            FileOutputStream os=new FileOutputStream(getClass().getSimpleName()+".xml");
+            Properties properties=new Properties();
+            properties.setProperty(PROPERTY_SPLIT_POSITION,String.valueOf(this.split.getDividerLocation()));
+            properties.setProperty(PROPERTY_TABLE1_COLUMN1_WIDTH,String.valueOf(seccionesTable.getColumn("ID").getWidth()));
+            properties.setProperty(PROPERTY_TABLE2_COLUMN1_WIDTH,String.valueOf(puestosTable.getColumn("ID").getWidth()));
+            properties.storeToXML(os,null);
+            os.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

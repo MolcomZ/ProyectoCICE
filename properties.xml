@@ -2,10 +2,10 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <entry key="GestionPersonalFrame.WIDTH">1302</entry>
-<entry key="GestionPersonalFrame.TOP">520</entry>
+<entry key="GestionPersonalFrame.TOP">160</entry>
 <entry key="GestionLocalidadesFrame.HEIGHT">298</entry>
 <entry key="GestionPersonalFrame.HEIGHT">544</entry>
-<entry key="GestionPersonalFrame.LEFT">226</entry>
+<entry key="GestionPersonalFrame.LEFT">416</entry>
 <entry key="GestionLocalidadesFrame.TOP">175</entry>
 <entry key="GestionLocalidadesFrame.WIDTH">1519</entry>
 <entry key="GestionPersonalFrame.PUESTOSCOLLAPSE">true</entry>
