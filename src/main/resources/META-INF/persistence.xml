@@ -4,13 +4,6 @@
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 	<persistence-unit name="MySQL_JPA" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <!--<class>com.molcomz.ProyectoCICE.jpa.empleados.EmpleadoService</class>-->
-        <!--<class>com.molcomz.ProyectoCICE.jpa.comunidades_autonomas.ComunidadService</class>-->
-        <!--<class>com.molcomz.ProyectoCICE.jpa.localidades.LocalidadService</class>-->
-        <!--<class>com.molcomz.ProyectoCICE.jpa.provincias.ProvinciaService</class>-->
-        <!--<class>com.molcomz.ProyectoCICE.jpa.puestos.PuestoService</class>-->
-        <!--<class>com.molcomz.ProyectoCICE.jpa.secciones.SeccionService</class>-->
-        <!--<class>com.molcomz.ProyectoCICE.jpa.turnos.TurnoService</class>-->
         <properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pruebajpa" />

@@ -59,8 +59,8 @@ public class PuestoCellEditor extends AbstractCellEditor implements TableCellEdi
 //        Iterator it=map.entrySet().iterator();
 //        while(it.hasNext()){
 //            Map.Entry pair= (Map.Entry) it.next();
-//            if(pair.getValue().equals(combo.getSelectedItem())){
-//                return pair.getKey();
+//            if(pair.getText().equals(combo.getSelectedItem())){
+//                return pair.getId();
 //            }
 //        }
         return null;

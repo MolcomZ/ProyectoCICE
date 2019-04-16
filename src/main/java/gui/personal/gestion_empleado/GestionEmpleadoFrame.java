@@ -6,6 +6,7 @@ import com.alee.laf.label.WebLabel;
 import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.tabbedpane.WebTabbedPane;
+import gui.personal.gestion_empleado.ausencias.AusenciasPane;
 import jpa.empleados.EmpleadoEntity;
 import jpa.empleados.EmpleadoService;
 import jpa.puestos.PuestoEntity;
@@ -56,6 +57,7 @@ public class GestionEmpleadoFrame {
 
     private WebTabbedPane tabbedPane;
     private PuestoPane puestoPane;
+    private AusenciasPane ausenciasPane;
     private WebButton closeButton;
 
     private EmpleadoEntity empleado;
@@ -92,7 +94,9 @@ public class GestionEmpleadoFrame {
 
         tabbedPane=new WebTabbedPane();
         puestoPane=new PuestoPane();
+        ausenciasPane=new AusenciasPane();
         tabbedPane.addTab("Puesto",puestoPane);
+        tabbedPane.addTab("Ausencias",ausenciasPane);
         closeButton=new WebButton("CERRAR");
 
         frame.add(idLabel);
@@ -217,6 +221,7 @@ public class GestionEmpleadoFrame {
             return;
         }
         this.empleado = empleado;
+        ausenciasPane.setEmpleado(empleado);
         fillEmpleadoData();
     }
     private void fillEmpleadoData(){

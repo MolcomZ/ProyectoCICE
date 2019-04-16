@@ -6,6 +6,7 @@ import com.alee.laf.menu.WebMenuBar;
 import com.alee.laf.menu.WebMenuItem;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.separator.WebSeparator;
+import gui.contenedores.ContenedoresFrame;
 import gui.personal.GestionPersonalFrame;
 
 import java.awt.*;
@@ -28,6 +29,7 @@ public class PrincipalFrame {
     WebMenu ventanas_menu;
     WebMenuItem gestionPersonal_menuitem;
     WebMenuItem gestionLocalidades_menuitem;
+    WebMenuItem lecturaContenedores_menuitem;
     WebMenuItem calendario_ausencias_menuitem;
     WebMenuItem pedidos_menu;
     WebMenuItem rutas_menu;
@@ -55,6 +57,7 @@ public class PrincipalFrame {
 //
     GestionPersonalFrame gestionPersonal;
     GestionLocalidadesFrame gestionLocalidades;
+    ContenedoresFrame contenedores;
 //
 //    ComunidadesAutonomasFrame comunidadesautonomas;
 //    ProvinciasFrame provincias;
@@ -96,6 +99,7 @@ public class PrincipalFrame {
         ventanas_menu=new WebMenu("Ventanas");
         gestionPersonal_menuitem=new WebMenuItem("Gestión personal");
         gestionLocalidades_menuitem=new WebMenuItem("Gestión localidades");
+        lecturaContenedores_menuitem=new WebMenuItem("Lectura de contenedores");
         calendario_ausencias_menuitem=new WebMenuItem("Calendario ausencias");
         pedidos_menu=new WebMenuItem("Pedidos");
         rutas_menu=new WebMenuItem("Rutas");
@@ -103,6 +107,7 @@ public class PrincipalFrame {
         menu.add(ventanas_menu);
         ventanas_menu.add(gestionPersonal_menuitem);
         ventanas_menu.add(gestionLocalidades_menuitem);
+        ventanas_menu.add(lecturaContenedores_menuitem);
         ventanas_menu.add(calendario_ausencias_menuitem);
         ventanas_menu.add(pedidos_menu);
         ventanas_menu.add(rutas_menu);
@@ -147,6 +152,7 @@ public class PrincipalFrame {
 //        registroAusenciasFrame=new RegistroAusenciasFrame(dbi);
         gestionPersonal=new GestionPersonalFrame();
         gestionLocalidades=new GestionLocalidadesFrame();
+        contenedores=new ContenedoresFrame();
 //        calendarioausencias=new CalendarioFrame(dbi);
         iniciaListeners();
 //        relacionaTablas();
@@ -173,6 +179,7 @@ public class PrincipalFrame {
         //frame.setLocationRelativeTo(null);
         frame.setLocation(0,0);
         frame.setVisible(true);
+
     }
     public void iniciaListeners(){
         frame.addWindowListener(new WindowAdapter() {
@@ -224,6 +231,12 @@ public class PrincipalFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gestionLocalidades.showFrame();
+            }
+        });
+        lecturaContenedores_menuitem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                contenedores.showFrame();
             }
         });
 //        calendario_ausencias_menuitem.addActionListener(new ActionListener() {

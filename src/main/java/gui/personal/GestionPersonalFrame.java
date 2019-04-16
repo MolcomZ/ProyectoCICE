@@ -4,6 +4,7 @@ import com.alee.laf.button.WebButton;
 import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.tabbedpane.WebTabbedPane;
+import gui.personal.ausencias.AusenciasPane;
 import gui.personal.filtros.FiltrosFrame;
 import gui.personal.gestion_empleado.GestionEmpleadoFrame;
 import jpa.empleados.EmpleadoEntity;
@@ -40,6 +41,7 @@ public class GestionPersonalFrame{
     private WebButton filtersButton;
     private WebTabbedPane tabbedPane;
     private EmpleadosPane empleadosPane;
+    private AusenciasPane ausenciasPane;
     private WebButton closeButton;
     private FiltrosFrame filtrosFrame;
     private GestionEmpleadoFrame empleadosFrame;
@@ -55,8 +57,9 @@ public class GestionPersonalFrame{
         frame.setLayout(layout);
         tabbedPane=new WebTabbedPane();
         empleadosPane=new EmpleadosPane();
+        ausenciasPane=new AusenciasPane();
         tabbedPane.addTab("GENERAL",empleadosPane);
-        tabbedPane.addTab("AUSENCIAS",null);
+        tabbedPane.addTab("AUSENCIAS",ausenciasPane);
         tabbedPane.addTab("HORAS POR HORAS",null);
         tabbedPane.addTab("CURSOS",null);
         tabbedPane.addTab("ANTICIPOS",null);
@@ -158,6 +161,7 @@ public class GestionPersonalFrame{
     }
     private void updateFilters(){
         empleadosPane.updateFilters(filtrosFrame.getSelectedTurnos(),filtrosFrame.getSelectedPuestos());
+        ausenciasPane.updateFilters(filtrosFrame.getSelectedTurnos(),filtrosFrame.getSelectedPuestos());
         //empleadosPane.updateFilters(filtroTurnosPane.getSelectedItems(),filtroPuestosPane.getSelectedItems());
     }
 
