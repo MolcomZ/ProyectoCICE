@@ -1,5 +1,6 @@
 package gui.personal.filtros.ausencias;
 
+import jpa.ausenciasempleado.AusenciasEmpleadoEntity;
 import util.AutoSizeableTable;
 
 import javax.swing.*;

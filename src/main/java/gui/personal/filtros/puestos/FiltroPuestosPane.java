@@ -5,6 +5,7 @@ import com.alee.laf.label.WebLabel;
 import com.alee.laf.panel.WebPanel;
 import com.alee.laf.scroll.WebScrollPane;
 import com.alee.laf.splitpane.WebSplitPane;
+import gui.PrincipalFrame;
 import gui.personal.editors.puestos.EditorPuestosFrame;
 import gui.personal.editors.puestos.SeccionCellEditor;
 import gui.personal.editors.puestos.SeccionCellRenderer;
@@ -13,11 +14,14 @@ import jpa.puestos.PuestoService;
 import jpa.secciones.SeccionEntity;
 import jpa.secciones.SeccionService;
 import net.miginfocom.swing.MigLayout;
+import util.EntityListener;
+import util.EntityListenerManager;
 import util.InclusionFilter;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -49,9 +53,7 @@ public class FiltroPuestosPane extends WebPanel {
     private WebScrollPane puestoScroll;
     private PuestoTable puestoTable;
     private DefaultTableModel puestoModel;
-    //PERSISTENCE
-    private EntityManagerFactory EMF;
-    private EntityManager EM;
+
     private SeccionService seccionService;
     private PuestoService puestoService;
 
@@ -62,7 +64,7 @@ public class FiltroPuestosPane extends WebPanel {
         this.setLayout(layout);
 
         splitPane=new WebSplitPane();
-        editButton=new WebButton("EDITAR");
+        editButton=new WebButton(new ImageIcon(getClass().getResource("/Edit.png")));
 
         seccionPane=new WebPanel();
         seccionLayout=new MigLayout("","[GROW]","[]");
@@ -99,10 +101,8 @@ public class FiltroPuestosPane extends WebPanel {
 
         editor=new EditorPuestosFrame();
 
-        EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
-        EM=EMF.createEntityManager();
-        seccionService=new SeccionService(EM);
-        puestoService=new PuestoService(EM);
+        seccionService=new SeccionService(PrincipalFrame.EM);
+        puestoService=new PuestoService(PrincipalFrame.EM);
 
         configTable();
         fillSecciones();
@@ -145,6 +145,18 @@ public class FiltroPuestosPane extends WebPanel {
                 }
             }
         });
+        EntityListenerManager.addListener(SeccionEntity.class, new EntityListener() {
+            @Override
+            public void entityUpdated() {
+                fillSecciones();
+            }
+        });
+        EntityListenerManager.addListener(PuestoEntity.class, new EntityListener() {
+            @Override
+            public void entityUpdated() {
+                fillPuestos();
+            }
+        });
     }
     private void configTable(){
         seccionModel.setColumnCount(2);
@@ -163,6 +175,7 @@ public class FiltroPuestosPane extends WebPanel {
         Object o[];
         seccionModel.setRowCount(0);
         for(SeccionEntity entity:seccionService.findAllSecciones()){
+            PrincipalFrame.EM.refresh(entity);
             o=new Object[3];
             o[0]=true;
             o[1]=entity.getId();
@@ -174,15 +187,23 @@ public class FiltroPuestosPane extends WebPanel {
     public void fillPuestos(){
         Object o[];
         puestoModel.setRowCount(0);
+        PrincipalFrame.EM.getEntityManagerFactory().getCache().evict(SeccionEntity.class);
+        PrincipalFrame.EM.getEntityManagerFactory().getCache().evict(PuestoEntity.class);
         for(PuestoEntity entity:puestoService.findAllPuestos()){
+            PrincipalFrame.EM.refresh(entity);
             o=new Object[4];
             o[0]=true;
             o[1]=entity.getId();
             o[2]=entity.getNombre();
+            PrincipalFrame.EM.refresh(entity.getSeccion());
             o[3]=entity.getSeccion();
             puestoModel.addRow(o);
         }
         revalidate();
+    }
+    public void refresh(){
+        fillSecciones();
+        fillPuestos();
     }
     private SeccionEntity getSelectedSeccion(){
         SeccionEntity entity=null;

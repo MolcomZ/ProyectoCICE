@@ -81,7 +81,7 @@ public class GestionLocalidadesFrame {
         frame.setLayout(layout);
 
         addComunidadButton=new WebButton(new ImageIcon(getClass().getResource("/Add.png")));
-        deleteComunidadButton=new WebButton(new ImageIcon(getClass().getResource("/Delete.png")));
+        deleteComunidadButton=new WebButton(new ImageIcon(getClass().getResource("/Remove.png")));
         updateButton=new WebButton(new ImageIcon(getClass().getResource("/Refresh.png")));
         comunidadPanel=new WebPanel();
         comunidadPanel.setUndecorated(false);
@@ -93,7 +93,7 @@ public class GestionLocalidadesFrame {
         tableComunidadScrollPane=new WebScrollPane(comunidadTable);
 
         addProvinciaButton=new WebButton(new ImageIcon(getClass().getResource("/Add.png")));
-        deleteProvinciaButton=new WebButton(new ImageIcon(getClass().getResource("/Delete.png")));
+        deleteProvinciaButton=new WebButton(new ImageIcon(getClass().getResource("/Remove.png")));
         provinciaPanel=new WebPanel();
         provinciaPanel.setUndecorated(false);
         provinciaPanel.setRound(4);
@@ -104,7 +104,7 @@ public class GestionLocalidadesFrame {
         tableProvinciaScrollPane=new WebScrollPane(provinciaTable);
 
         addLocalidadButton=new WebButton(new ImageIcon(getClass().getResource("/Add.png")));
-        deleteLocalidadButton=new WebButton(new ImageIcon(getClass().getResource("/Delete.png")));
+        deleteLocalidadButton=new WebButton(new ImageIcon(getClass().getResource("/Remove.png")));
         localidadPanel=new WebPanel();
         localidadPanel.setUndecorated(false);
         localidadPanel.setRound(4);

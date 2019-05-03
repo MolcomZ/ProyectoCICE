@@ -4,9 +4,11 @@ import com.alee.laf.button.WebButton;
 import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.scroll.WebScrollPane;
+import gui.PrincipalFrame;
 import jpa.turnos.TurnoEntity;
 import jpa.turnos.TurnoService;
 import net.miginfocom.swing.MigLayout;
+import util.EntityListenerManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -30,8 +32,8 @@ public class EditorTurnosFrame {
     private WebButton closeButton;
 
     //PERSISTENCE
-    private EntityManagerFactory EMF;
-    private EntityManager EM;
+    //private EntityManagerFactory EMF;
+    //private EntityManager EM;
     private TurnoService turnoService;
 
     public EditorTurnosFrame(){
@@ -43,16 +45,16 @@ public class EditorTurnosFrame {
         scroll=new WebScrollPane(table);
         closeButton=new WebButton("CERRAR");
         addButton=new WebButton(new ImageIcon(getClass().getResource("/Add.png")));
-        removeButton=new WebButton(new ImageIcon(getClass().getResource("/Delete.png")));
+        removeButton=new WebButton(new ImageIcon(getClass().getResource("/Remove.png")));
 
         frame.add(addButton,"SPLIT");
         frame.add(removeButton,"WRAP");
         frame.add(scroll,"GROW,WRAP");
         frame.add(closeButton,"RIGHT");
 
-        EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
-        EM=EMF.createEntityManager();
-        turnoService=new TurnoService(EM);
+        //EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
+        //EM=EMF.createEntityManager();
+        turnoService=new TurnoService(PrincipalFrame.EM);
 
         configTable();
         fillTurnos();
@@ -62,9 +64,6 @@ public class EditorTurnosFrame {
     }
     public void showFrame(){
         frame.setVisible(true);
-    }
-    void fireUpdate(){
-        frame.firePropertyChange("DataUpdated",1,0);
     }
     private void configTable(){
         model.setColumnCount(3);
@@ -112,7 +111,6 @@ public class EditorTurnosFrame {
     private void addTurno(){
         try {
             turnoService.createTurno(null,"","");
-            fireUpdate();
         }catch(Exception e){
             WebOptionPane.showMessageDialog(frame,
                     "Error al agregar registro.",
@@ -120,6 +118,7 @@ public class EditorTurnosFrame {
                     WebOptionPane.ERROR_MESSAGE
             );
         }
+        EntityListenerManager.fireEntityUpdated(TurnoEntity.class);
         fillTurnos();
         table.setSelectedRow(table.getRowCount()-1);
     }
@@ -129,7 +128,6 @@ public class EditorTurnosFrame {
         if(entity!=null){
             try {
                 turnoService.updateTurno(entity.getId(), entity.getNombre(),entity.getDescripcion());
-                fireUpdate();
             }catch(Exception e){
                 WebOptionPane.showMessageDialog(frame,
                         "Error al editar registro.",
@@ -137,6 +135,7 @@ public class EditorTurnosFrame {
                         WebOptionPane.ERROR_MESSAGE
                 );
             }
+            EntityListenerManager.fireEntityUpdated(TurnoEntity.class);
             fillTurnos();
         }
         table.setSelectedRow(row);
@@ -147,7 +146,6 @@ public class EditorTurnosFrame {
         if(entity!=null){
             try {
                 turnoService.removeTurno(entity.getId());
-                fireUpdate();
             }catch(Exception e){
                 WebOptionPane.showMessageDialog(frame,
                         "Error al eliminar registro.",
@@ -155,6 +153,7 @@ public class EditorTurnosFrame {
                         WebOptionPane.ERROR_MESSAGE
                 );
             }
+            EntityListenerManager.fireEntityUpdated(TurnoEntity.class);
             fillTurnos();
         }
         if(table.getRowCount()>selectedRow){

@@ -7,10 +7,13 @@ import gui.personal.editors.turnos.EditorTurnosFrame;
 import jpa.turnos.TurnoEntity;
 import jpa.turnos.TurnoService;
 import net.miginfocom.swing.MigLayout;
+import util.EntityListener;
+import util.EntityListenerManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -45,7 +48,7 @@ public class FiltroTurnosPane extends WebPanel {
         turnoTable=new TurnoTable(turnoModel);
         turnoScroll=new WebScrollPane(turnoTable);
         turnoPane.add(turnoScroll,"GROW");
-        editButton=new WebButton("EDITAR");
+        editButton=new WebButton(new ImageIcon(getClass().getResource("/Edit.png")));
         editor=new EditorTurnosFrame();
 
         this.add(editButton,"RIGHT,TOP,WRAP");
@@ -74,6 +77,12 @@ public class FiltroTurnosPane extends WebPanel {
                 editor.showFrame();
             }
         });
+        EntityListenerManager.addListener(TurnoEntity.class, new EntityListener() {
+            @Override
+            public void entityUpdated() {
+                fillTurnos();
+            }
+        });
     }
     private void configTable(){
         turnoModel.setColumnCount(4);
@@ -84,6 +93,7 @@ public class FiltroTurnosPane extends WebPanel {
         Object o[];
         turnoModel.setRowCount(0);
         for(TurnoEntity entity:turnoService.findAllTurnos()){
+            EM.refresh(entity);
             o=new Object[4];
             o[0]=true;
             o[1]=entity.getId();
@@ -91,6 +101,7 @@ public class FiltroTurnosPane extends WebPanel {
             o[3]=entity.getDescripcion();
             turnoModel.addRow(o);
         }
+        revalidate();
     }
     private void fireUpdate(){
         this.firePropertyChange("DataUpdated",1,0);

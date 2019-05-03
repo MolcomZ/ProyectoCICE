@@ -6,9 +6,19 @@ import com.alee.laf.menu.WebMenuBar;
 import com.alee.laf.menu.WebMenuItem;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.separator.WebSeparator;
+import com.sun.xml.internal.ws.api.config.management.policy.ManagementAssertion;
 import gui.contenedores.ContenedoresFrame;
-import gui.personal.GestionPersonalFrame;
+import gui.personal.editors.ausencias.EditorAusenciasFrame;
+import gui.personal.editors.puestos.EditorPuestosFrame;
+import gui.personal.editors.turnos.EditorTurnosFrame;
+import gui.personal.gestionpersonal.GestionPersonalFrame;
+import gui.settings.SettingsFrame;
+import util.UserSettings;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.xml.bind.JAXBException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,9 +36,17 @@ public class PrincipalFrame {
     WebMenuItem conexion_menu;
     WebMenuItem configuracion_menu;
     WebMenuItem salir_menu;
-    WebMenu ventanas_menu;
+
+    WebMenu gestion_menu;
     WebMenuItem gestionPersonal_menuitem;
     WebMenuItem gestionLocalidades_menuitem;
+
+    WebMenu edicion_menu;
+    WebMenuItem puestos_menuitem;
+    WebMenuItem turnos_menuitem;
+    WebMenuItem ausencias_menuitem;
+
+    WebMenu ventanas_menu;
     WebMenuItem lecturaContenedores_menuitem;
     WebMenuItem calendario_ausencias_menuitem;
     WebMenuItem pedidos_menu;
@@ -55,9 +73,13 @@ public class PrincipalFrame {
 //    RutasFrame rutas;
 //    TiendasFrame tiendas;
 //
+    SettingsFrame settingsFrame;
     GestionPersonalFrame gestionPersonal;
     GestionLocalidadesFrame gestionLocalidades;
     ContenedoresFrame contenedores;
+    EditorPuestosFrame editorPuestosFrame;
+    EditorTurnosFrame editorTurnosFrame;
+    EditorAusenciasFrame editorAusenciasFrame;
 //
 //    ComunidadesAutonomasFrame comunidadesautonomas;
 //    ProvinciasFrame provincias;
@@ -77,11 +99,25 @@ public class PrincipalFrame {
 
     //Objeto propiedades
     static Properties propiedades;
+    public static UserSettings setting=new UserSettings();
+
+
+    //JPA
+    static EntityManagerFactory EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
+    public static EntityManager EM=EMF.createEntityManager();
 
 
     public PrincipalFrame(){
         WebLookAndFeel.setDecorateFrames(true);
         WebLookAndFeel.setDecorateAllWindows(true);
+
+        try {
+            setting.loadSettings();
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
 
         frame=new WebFrame("Proyecto fin de curso");
         //frame.setDefaultCloseOperation(WebFrame.EXIT_ON_CLOSE);
@@ -96,17 +132,29 @@ public class PrincipalFrame {
         inicio_menu.add(configuracion_menu);
         inicio_menu.add(salir_menu);
 
-        ventanas_menu=new WebMenu("Ventanas");
+        gestion_menu=new WebMenu("Gestión");
         gestionPersonal_menuitem=new WebMenuItem("Gestión personal");
         gestionLocalidades_menuitem=new WebMenuItem("Gestión localidades");
+        menu.add(gestion_menu);
+        gestion_menu.add(gestionPersonal_menuitem);
+        gestion_menu.add(gestionLocalidades_menuitem);
+
+        edicion_menu=new WebMenu("Edición");
+        puestos_menuitem=new WebMenuItem("Puestos");
+        turnos_menuitem=new WebMenuItem("Turnos");
+        ausencias_menuitem=new WebMenuItem("Ausencias");
+        menu.add(edicion_menu);
+        edicion_menu.add(puestos_menuitem);
+        edicion_menu.add(turnos_menuitem);
+        edicion_menu.add(ausencias_menuitem);
+
+        ventanas_menu=new WebMenu("Ventanas");
         lecturaContenedores_menuitem=new WebMenuItem("Lectura de contenedores");
         calendario_ausencias_menuitem=new WebMenuItem("Calendario ausencias");
         pedidos_menu=new WebMenuItem("Pedidos");
         rutas_menu=new WebMenuItem("Rutas");
         tiendas_menu=new WebMenuItem("Tiendas");
         menu.add(ventanas_menu);
-        ventanas_menu.add(gestionPersonal_menuitem);
-        ventanas_menu.add(gestionLocalidades_menuitem);
         ventanas_menu.add(lecturaContenedores_menuitem);
         ventanas_menu.add(calendario_ausencias_menuitem);
         ventanas_menu.add(pedidos_menu);
@@ -150,8 +198,12 @@ public class PrincipalFrame {
 //        tipoausencias=new TipoAusenciasFrame(dbi);
 //        saldo=new SaldoAusenciasFrame(dbi);
 //        registroAusenciasFrame=new RegistroAusenciasFrame(dbi);
+        settingsFrame=new SettingsFrame();
         gestionPersonal=new GestionPersonalFrame();
         gestionLocalidades=new GestionLocalidadesFrame();
+        editorPuestosFrame=new EditorPuestosFrame();
+        editorTurnosFrame=new EditorTurnosFrame();
+        editorAusenciasFrame=new EditorAusenciasFrame();
         contenedores=new ContenedoresFrame();
 //        calendarioausencias=new CalendarioFrame(dbi);
         iniciaListeners();
@@ -169,6 +221,13 @@ public class PrincipalFrame {
 
 //        NovedadesFrame nf=new NovedadesFrame(dbi);
 //        nf.showFrame();
+
+
+//        SettingsFrame settingsFrame=new SettingsFrame();
+//        settingsFrame.showFrame();
+
+
+
 
     }
     public void muestraFrame(){
@@ -215,6 +274,12 @@ public class PrincipalFrame {
 //                }
 //            }
 //        });
+        configuracion_menu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                settingsFrame.showFrame();
+            }
+        });
         salir_menu.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -231,6 +296,24 @@ public class PrincipalFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 gestionLocalidades.showFrame();
+            }
+        });
+        puestos_menuitem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editorPuestosFrame.showFrame();
+            }
+        });
+        turnos_menuitem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editorTurnosFrame.showFrame();
+            }
+        });
+        ausencias_menuitem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editorAusenciasFrame.showFrame();
             }
         });
         lecturaContenedores_menuitem.addActionListener(new ActionListener() {

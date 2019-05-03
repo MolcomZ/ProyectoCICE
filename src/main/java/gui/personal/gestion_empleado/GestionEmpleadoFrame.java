@@ -6,6 +6,7 @@ import com.alee.laf.label.WebLabel;
 import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.tabbedpane.WebTabbedPane;
+import gui.PrincipalFrame;
 import gui.personal.gestion_empleado.ausencias.AusenciasPane;
 import jpa.empleados.EmpleadoEntity;
 import jpa.empleados.EmpleadoService;
@@ -14,6 +15,8 @@ import jpa.puestos.PuestoService;
 import jpa.turnos.TurnoEntity;
 import jpa.turnos.TurnoService;
 import net.miginfocom.swing.MigLayout;
+import util.EntityListener;
+import util.EntityListenerManager;
 import util.WebTextFieldEnterFocus;
 
 import javax.persistence.EntityManager;
@@ -62,9 +65,6 @@ public class GestionEmpleadoFrame {
 
     private EmpleadoEntity empleado;
 
-    //PERSISTENCE
-    private EntityManagerFactory EMF;
-    private EntityManager EM;
     private EmpleadoService empleadoService;
     private TurnoService turnoService;
 
@@ -79,7 +79,7 @@ public class GestionEmpleadoFrame {
         idLabel=new WebLabel("ID:");
         //idlockButton=new WebToggleButton(new ImageIcon(this.getClass().getResource("/Lock.png")));
         addButton=new WebButton(new ImageIcon(getClass().getResource("/Add.png")));
-        removeButton=new WebButton(new ImageIcon(getClass().getResource("/Delete.png")));
+        removeButton=new WebButton(new ImageIcon(getClass().getResource("/Remove.png")));
         nombreLabel=new WebLabel("NOMBRE:");
         apellidoLabel=new WebLabel("APELLIDO:");
         idText= new WebTextFieldEnterFocus();
@@ -93,32 +93,30 @@ public class GestionEmpleadoFrame {
         turnoCombo=new WebComboBox();
 
         tabbedPane=new WebTabbedPane();
+        tabbedPane.setTabPlacement(WebTabbedPane.BOTTOM);
         puestoPane=new PuestoPane();
         ausenciasPane=new AusenciasPane();
-        tabbedPane.addTab("Puesto",puestoPane);
-        tabbedPane.addTab("Ausencias",ausenciasPane);
+        tabbedPane.addTab("PUESTO",puestoPane);
+        tabbedPane.addTab("AUSENCIAS",ausenciasPane);
         closeButton=new WebButton("CERRAR");
 
         frame.add(idLabel);
         frame.add(idText,"WIDTH 80,LEFT,SPLIT 2,WRAP");
-        //frame.add(idlockButton,"WRAP");
         frame.add(nombreLabel);
         frame.add(nombreText,"WIDTH 120,LEFT");
         frame.add(apellidoLabel);
         frame.add(apellidoText,"WIDTH 180,LEFT,WRAP");
         frame.add(turnoLabel);
-        frame.add(turnoCombo,"WIDTH 120,LEFT,WRAP");
+        frame.add(turnoCombo,"WIDTH 120,LEFT");
+        frame.add(addButton,"CELL 3 2,RIGHT,SPLIT 2");
+        frame.add(removeButton,"WRAP");
         frame.add(tabbedPane,"GROW,WRAP,SPAN 4");
-        frame.add(addButton,"CELL 0 4,LEFT,SPLIT 2");
-        frame.add(removeButton);
         frame.add(closeButton,"CELL 3 4,RIGHT");
 
         turnosMap=new HashMap<>();
 
-        EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
-        EM=EMF.createEntityManager();
-        empleadoService=new EmpleadoService(EM);
-        turnoService=new TurnoService(EM);
+        empleadoService=new EmpleadoService(PrincipalFrame.EM);
+        turnoService=new TurnoService(PrincipalFrame.EM);
 
         updateTurnos();
         fillEmpleadoData();
@@ -126,19 +124,6 @@ public class GestionEmpleadoFrame {
         initListeners();
     }
     public void initListeners(){
-/*
-        idlockButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if(idlockButton.isSelected()){
-                    WebOptionPane.showMessageDialog(frame,"El ID es un dato común a otros departamentos y/o bases de datos.\nSi se cambia puede que se pierda la relación.","¡Atención!",WebOptionPane.WARNING_MESSAGE);
-                    idText.setEnabled(true);
-                }else{
-                    idText.setEnabled(false);
-                }
-            }
-        });
-*/
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -180,10 +165,10 @@ public class GestionEmpleadoFrame {
                 puestoPane.saveProperties();
             }
         });
-        idText.addFocusListener(new FocusAdapter() {
+        EntityListenerManager.addListener(TurnoEntity.class, new EntityListener() {
             @Override
-            public void focusLost(FocusEvent e) {
-                editEmpleado();
+            public void entityUpdated() {
+                updateTurnos();
             }
         });
         nombreText.addFocusListener(new FocusAdapter() {
@@ -200,6 +185,8 @@ public class GestionEmpleadoFrame {
         });
     }
     private void updateTurnos(){
+        userEditing=false;
+        int index=turnoCombo.getSelectedIndex();
         List<TurnoEntity> turnos;
         turnos=turnoService.findAllTurnos();
         turnoCombo.removeAllItems();
@@ -208,6 +195,8 @@ public class GestionEmpleadoFrame {
             turnoCombo.addItem(turno.getNombre());
             turnosMap.put(turno.getId(),turno.getNombre());
         }
+        turnoCombo.setSelectedIndex(index);
+        userEditing=true;
     }
     public void showFrame(){
         loadProperties();
@@ -254,17 +243,26 @@ public class GestionEmpleadoFrame {
         frame.firePropertyChange(DATA_CHANGED,1,0);
         frame.dispose();
     }
-    public void addEmpleado(){
-        TurnoService turnoService=new TurnoService(EM);
-        PuestoService puestoService=new PuestoService(EM);
+    public boolean addEmpleado(){
+        TurnoService turnoService=new TurnoService(PrincipalFrame.EM);
+        PuestoService puestoService=new PuestoService(PrincipalFrame.EM);
         TurnoEntity turno=new TurnoEntity();
+        if(turnoService.findAllTurnos().size()==0){
+            WebOptionPane.showMessageDialog(frame,"No existen turnos,\ncree al menos un turno al que asignar al empleado.");
+            return false;
+        }
         turno=turnoService.findAllTurnos().get(0);
         PuestoEntity puesto=new PuestoEntity();
+        if(puestoService.findAllPuestos().size()==0){
+            WebOptionPane.showMessageDialog(frame,"No existen puestos,\ncree al menos un puesto al que asignar al empleado.");
+            return false;
+        }
         puesto=puestoService.findAllPuestos().get(0);
         empleado=empleadoService.createEmpleado(null,"","",turno,puesto);
         WebOptionPane.showMessageDialog(frame,"Empleado creado");
         fillEmpleadoData();
         frame.firePropertyChange(DATA_CHANGED,1,0);
+        return true;
     }
     private TurnoEntity getTurno(){
         Long id;

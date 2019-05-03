@@ -1,5 +1,6 @@
 package util.calendarday;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class CalendarDayValueList{
@@ -7,6 +8,11 @@ public class CalendarDayValueList{
 
     public CalendarDayValueList(){
         list=new ArrayList<>();
+        CalendarDayValue value=new CalendarDayValue();
+        value.setId(1l);
+        value.setText("Value");
+        value.setColor(Color.YELLOW);
+        //list.add(value);
     }
     public CalendarDayValueList(ArrayList<CalendarDayValue> list){
         this.list=list;

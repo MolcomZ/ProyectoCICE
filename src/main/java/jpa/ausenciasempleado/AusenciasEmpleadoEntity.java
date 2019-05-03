@@ -66,26 +66,37 @@ public class AusenciasEmpleadoEntity {
         this.cantidad = cantidad;
     }
 
+    public EmpleadoEntity getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(EmpleadoEntity empleado) {
+        this.empleado = empleado;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AusenciasEmpleadoEntity that = (AusenciasEmpleadoEntity) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(tipo, that.tipo) &&
-                Objects.equals(year, that.year) &&
-                Objects.equals(cantidad, that.cantidad);
+        AusenciasEmpleadoEntity entity = (AusenciasEmpleadoEntity) o;
+        return Objects.equals(id, entity.id) &&
+                Objects.equals(empleado, entity.empleado) &&
+                Objects.equals(tipo, entity.tipo) &&
+                Objects.equals(year, entity.year) &&
+                Objects.equals(cantidad, entity.cantidad);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, tipo, year, cantidad);
+
+        return Objects.hash(id, empleado, tipo, year, cantidad);
     }
 
     @Override
     public String toString() {
         return "AusenciasEmpleadoEntity{" +
                 "id=" + id +
+                ", empleado=" + empleado +
                 ", tipo=" + tipo +
                 ", year=" + year +
                 ", cantidad=" + cantidad +

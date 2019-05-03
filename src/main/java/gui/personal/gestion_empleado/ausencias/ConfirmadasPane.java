@@ -6,16 +6,24 @@ import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.panel.WebPanel;
 import com.alee.laf.scroll.WebScrollPane;
 import com.alee.laf.text.WebTextField;
+import gui.PrincipalFrame;
+import gui.personal.util.DateCellEditor;
+import gui.personal.util.DateCellRenderer;
 import jpa.ausenciasempleado.AusenciasEmpleadoEntity;
 import jpa.ausenciasempleadoconfirmadas.AusenciasConfirmadasEntity;
 import jpa.ausenciasempleadoconfirmadas.AusenciasConfirmadasService;
 import net.miginfocom.swing.MigLayout;
 import util.AutoSizeableTable;
+import util.EntityListenerManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.swing.*;
+import javax.swing.event.CellEditorListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,9 +46,6 @@ public class ConfirmadasPane extends WebPanel {
     private WebLabel restantesLabel;
     private WebTextField restantesText;
 
-    //PERSISTENCE
-    EntityManagerFactory EMF;
-    EntityManager EM;
     AusenciasConfirmadasService service;
 
     private AusenciasEmpleadoEntity ausencia;
@@ -52,8 +57,8 @@ public class ConfirmadasPane extends WebPanel {
         model=new DefaultTableModel();
         table=new AutoSizeableTable(model);
         scroll=new WebScrollPane(table);
-        addButton=new WebButton("Agregar",new ImageIcon(getClass().getResource("/Add2.png")));
-        removeButton=new WebButton("Eliminar",new ImageIcon(getClass().getResource("/Remove2.png")));
+        addButton=new WebButton("Agregar",new ImageIcon(getClass().getResource("/Add.png")));
+        removeButton=new WebButton("Eliminar",new ImageIcon(getClass().getResource("/Remove.png")));
         totalLabel=new WebLabel("Total:");
         totalText=new WebTextField();
         totalText.setEditable(false);
@@ -74,9 +79,7 @@ public class ConfirmadasPane extends WebPanel {
         add(addButton,"SPLIT 2,LEFT");
         add(removeButton,"LEFT,WRAP");
 
-        EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
-        EM=EMF.createEntityManager();
-        service=new AusenciasConfirmadasService(EM);
+        service=new AusenciasConfirmadasService(PrincipalFrame.EM);
 
         configTable();
         initListeners();
@@ -94,10 +97,24 @@ public class ConfirmadasPane extends WebPanel {
                 removeComfirmada();
             }
         });
+        table.getModel().addTableModelListener(new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                if(e.getType()==TableModelEvent.UPDATE){
+                    editConfirmada();
+                }
+            }
+        });
     }
     private void configTable(){
         model.setColumnCount(4);
         model.setColumnIdentifiers(new String[]{"ID","INICIO","FIN","DIAS"});
+        DateCellEditor editor=new DateCellEditor();
+        table.getColumn("INICIO").setCellRenderer(new DateCellRenderer());
+        table.getColumn("FIN").setCellRenderer(new DateCellRenderer());
+        table.getColumn("INICIO").setCellEditor(editor);
+        table.getColumn("FIN").setCellEditor(editor);
+        //table.setRowHeight((int) editor.getTableCellEditorComponent(table,null,false,0,0).getPreferredSize().getHeight());
     }
     private void fillTable(){
         Date d1,d2;
@@ -131,6 +148,10 @@ public class ConfirmadasPane extends WebPanel {
         restantes=total-confirmadas;
         totalText.setText(total.toString());
         restantesText.setText(restantes.toString());
+
+        //PRUEBA
+        //table.adjustRowMax(0,0);
+        //table.adjustRowMax(1,0);
     }
     public void setAusencia(AusenciasEmpleadoEntity ausencia){
         this.ausencia=ausencia;
@@ -160,14 +181,52 @@ public class ConfirmadasPane extends WebPanel {
             e.printStackTrace();
         }
     }
+    private void editConfirmada(){
+        int row=table.getSelectedRow();
+        AusenciasConfirmadasEntity entity=getSelectedConfirmada();
+        System.out.println("edit confirmada");
+        if(entity!=null){
+            System.out.println("not null");
+            if(entity.getInicio().compareTo(entity.getFin())>0){
+                WebOptionPane.showMessageDialog(this,"La fecha final no puede ser anterior a la inicial.");
+                fillTable();
+                table.setSelectedRow(row);
+                return;
+            }
+            try {
+                service.updateAusenciasConfirmadas(entity.getId(),
+                        entity.getAusencia(),
+                        entity.getInicio(),
+                        entity.getFin());
+            }catch(Exception e){
+                WebOptionPane.showMessageDialog(this,
+                        "Error al editar registro.",
+                        "Error",
+                        WebOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+        }
+        fillTable();
+        table.setSelectedRow(row);
+//        firePropertyChange(UPDATE_EVENT,1,0);
+        EntityListenerManager.fireEntityUpdated(AusenciasConfirmadasEntity.class);
+    }
+
     private AusenciasConfirmadasEntity getSelectedConfirmada(){
         Integer row;
         Long id;
+        AusenciasEmpleadoEntity ausenciaEmpleado;
+        Date inicio,fin;
+
         AusenciasConfirmadasEntity entity=null;
         row=table.getSelectedRow();
         if(row!=-1){
             id=(Long)table.getValueAt(table.convertRowIndexToModel(row),table.convertColumnIndexToModel(0));
-            entity=service.findAusenciasConfirmadas(id);
+            inicio= (Date) table.getValueAt(table.convertRowIndexToModel(row),table.convertColumnIndexToModel(1));
+            fin= (Date) table.getValueAt(table.convertRowIndexToModel(row),table.convertColumnIndexToModel(2));
+            entity=new AusenciasConfirmadasEntity(id,ausencia,inicio,fin);
+            //entity=service.findAusenciasConfirmadas(id);
         }
         return entity;
     }

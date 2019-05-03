@@ -15,6 +15,8 @@ import jpa.secciones.SeccionEntity;
 import jpa.secciones.SeccionService;
 import net.miginfocom.swing.MigLayout;
 import util.AutoSizeableTable;
+import util.EntityListener;
+import util.EntityListenerManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -96,7 +98,7 @@ public class PuestoPane extends WebPanel {
             public void valueChanged(ListSelectionEvent e) {
                 SeccionEntity entity=getSelectedSeccion();
                 if(entity!=null){
-                    fillPuestos(entity.getId());
+                    fillPuestos(entity);
                 }
             }
         });
@@ -109,6 +111,18 @@ public class PuestoPane extends WebPanel {
                     puestoText.setText(puesto.getNombre());
                     firePropertyChange(PUESTO_CHANGED,1,0);
                 }
+            }
+        });
+        EntityListenerManager.addListener(SeccionEntity.class, new EntityListener() {
+            @Override
+            public void entityUpdated() {
+                fillSecciones();
+            }
+        });
+        EntityListenerManager.addListener(PuestoEntity.class, new EntityListener() {
+            @Override
+            public void entityUpdated() {
+                fillPuestos(getSelectedSeccion());
             }
         });
     }
@@ -129,10 +143,13 @@ public class PuestoPane extends WebPanel {
         }
         revalidate();
     }
-    public void fillPuestos(Long id){
+    public void fillPuestos(SeccionEntity seccion){
         Object o[];
         puestosModel.setRowCount(0);
-        for(PuestoEntity entity:puestoService.findPuestosByIdSeccion(id)){
+        if(seccion==null){
+            return;
+        }
+        for(PuestoEntity entity:puestoService.findPuestosByIdSeccion(seccion.getId())){
             o=new Object[2];
             o[0]=entity.getId();
             o[1]=entity.getNombre();

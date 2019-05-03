@@ -21,6 +21,8 @@ import javax.persistence.Persistence;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -53,8 +55,8 @@ public class TiposPane extends WebPanel {
         model=new DefaultTableModel();
         table=new AutoSizeableTable(model);
         scroll=new WebScrollPane(table);
-        addButton=new WebButton("Agregar",new ImageIcon(getClass().getResource("/Add2.png")));
-        removeButton=new WebButton("Eliminar",new ImageIcon(getClass().getResource("/Remove2.png")));
+        addButton=new WebButton("Agregar",new ImageIcon(getClass().getResource("/Add.png")));
+        removeButton=new WebButton("Eliminar",new ImageIcon(getClass().getResource("/Remove.png")));
 
         add(scroll,"GROW,WRAP");
         add(addButton,"SPLIT 2,LEFT");
@@ -77,8 +79,22 @@ public class TiposPane extends WebPanel {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("ADDTIPO");
                 addTipo();
+            }
+        });
+        removeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                removeTipo();
+            }
+        });
+        table.getModel().addTableModelListener(new TableModelListener() {
+            @Override
+            public void tableChanged(TableModelEvent e) {
+                if(e.getType()==TableModelEvent.UPDATE){
+                    editTipo();
+                    System.out.println("EDIT");
+                }
             }
         });
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
@@ -149,14 +165,52 @@ public class TiposPane extends WebPanel {
             WebOptionPane.showMessageDialog(this,"El empleado ya tiene todos los tipos de ausencias.");
         }
     }
+    private void removeTipo(){
+        AusenciasEmpleadoEntity entity=getSelectedAusencia();
+        if(entity==null){
+            WebOptionPane.showMessageDialog(this,"No hay seleccionado ningún tipo de ausencia.");
+            return;
+        }
+        Integer row=table.getSelectedRow();
+        service.removeAusenciasEmpleado(entity.getId());
+        fillTable();
+        if (row >= table.getRowCount()) {
+            row = table.getRowCount()-1;
+        }
+        if(row>=0) {
+            table.setSelectedRow(row);
+        }
+    }
+    private void editTipo(){
+        AusenciasEmpleadoEntity entity=getSelectedAusencia();
+        try {
+            service.updateAusenciasEmpleado(entity.getId(),
+                    entity.getTipo(),
+                    entity.getYear(),
+                    entity.getCantidad());
+        }catch(Exception e){
+            WebOptionPane.showMessageDialog(this,
+                    "Error al editar registro.",
+                    "Error",
+                    WebOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+    }
     private AusenciasEmpleadoEntity getSelectedAusencia(){
         Integer row;
         Long id;
+        TiposAusenciaEntity tiposAusenciaEntity;
+        Integer year;
+        Integer cantidad;
         AusenciasEmpleadoEntity entity=null;
         row=table.getSelectedRow();
         if(row!=-1){
-            id=(Long)table.getValueAt(table.convertRowIndexToModel(row),table.convertColumnIndexToModel(0));
-            entity=service.findAusenciasEmpleado(id);
+            id=(Long) table.getValueAt(table.convertRowIndexToModel(row), table.convertColumnIndexToModel(0));
+            tiposAusenciaEntity=(TiposAusenciaEntity) table.getValueAt(table.convertRowIndexToModel(row), table.convertColumnIndexToModel(1));
+            year=(Integer) table.getValueAt(table.convertRowIndexToModel(row), table.convertColumnIndexToModel(2));
+            cantidad=Integer.parseInt(table.getValueAt(table.convertRowIndexToModel(row), table.convertColumnIndexToModel(3)).toString());
+            entity=new AusenciasEmpleadoEntity(id,empleado,tiposAusenciaEntity,year,cantidad);
         }
         return entity;
     }

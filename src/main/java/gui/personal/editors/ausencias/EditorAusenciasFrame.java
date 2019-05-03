@@ -7,6 +7,7 @@ import com.alee.laf.scroll.WebScrollPane;
 import jpa.ausencias.TiposAusenciaEntity;
 import jpa.ausencias.TiposAusenciaService;
 import net.miginfocom.swing.MigLayout;
+import util.EntityListenerManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -43,7 +44,7 @@ public class EditorAusenciasFrame {
         scroll=new WebScrollPane(table);
         closeButton=new WebButton("CERRAR");
         addButton=new WebButton(new ImageIcon(getClass().getResource("/Add.png")));
-        removeButton=new WebButton(new ImageIcon(getClass().getResource("/Delete.png")));
+        removeButton=new WebButton(new ImageIcon(getClass().getResource("/Remove.png")));
 
         frame.add(addButton,"SPLIT");
         frame.add(removeButton,"WRAP");
@@ -120,6 +121,7 @@ public class EditorAusenciasFrame {
                     WebOptionPane.ERROR_MESSAGE
             );
         }
+        EntityListenerManager.fireEntityUpdated(TiposAusenciaEntity.class);
         fillTiposAusencias();
         table.setSelectedRow(table.getRowCount()-1);
     }
@@ -137,6 +139,7 @@ public class EditorAusenciasFrame {
                         WebOptionPane.ERROR_MESSAGE
                 );
             }
+            EntityListenerManager.fireEntityUpdated(TiposAusenciaEntity.class);
             fillTiposAusencias();
         }
         table.setSelectedRow(row);
@@ -155,6 +158,7 @@ public class EditorAusenciasFrame {
                         WebOptionPane.ERROR_MESSAGE
                 );
             }
+            EntityListenerManager.fireEntityUpdated(TiposAusenciaEntity.class);
             fillTiposAusencias();
         }
         if(table.getRowCount()>selectedRow){

@@ -3,14 +3,18 @@ package gui.personal.filtros.ausencias;
 import com.alee.laf.button.WebButton;
 import com.alee.laf.panel.WebPanel;
 import com.alee.laf.scroll.WebScrollPane;
+import gui.PrincipalFrame;
 import gui.personal.editors.ausencias.EditorAusenciasFrame;
 import jpa.ausencias.TiposAusenciaEntity;
 import jpa.ausencias.TiposAusenciaService;
 import net.miginfocom.swing.MigLayout;
+import util.EntityListener;
+import util.EntityListenerManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.*;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -29,9 +33,6 @@ public class FiltroTiposAusenciaPane extends WebPanel {
     private WebButton editButton;
     private EditorAusenciasFrame editor;
 
-    //PERSISTENCE
-    private EntityManagerFactory EMF;
-    private EntityManager EM;
     private TiposAusenciaService tiposAusenciaService;
 
     public FiltroTiposAusenciaPane(){
@@ -45,15 +46,13 @@ public class FiltroTiposAusenciaPane extends WebPanel {
         table =new TiposAusenciaTable(model);
         scroll =new WebScrollPane(table);
         pane.add(scroll,"GROW");
-        editButton=new WebButton("EDITAR");
+        editButton=new WebButton(new ImageIcon(getClass().getResource("/Edit.png")));
         editor=new EditorAusenciasFrame();
 
         this.add(editButton,"RIGHT,TOP,WRAP");
         this.add(pane,"GROW,WRAP");
 
-        EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
-        EM=EMF.createEntityManager();
-        tiposAusenciaService=new TiposAusenciaService(EM);
+        tiposAusenciaService=new TiposAusenciaService(PrincipalFrame.EM);
 
         configTable();
         fillTiposAusencias();
@@ -74,6 +73,12 @@ public class FiltroTiposAusenciaPane extends WebPanel {
                 editor.showFrame();
             }
         });
+        EntityListenerManager.addListener(TiposAusenciaEntity.class, new EntityListener() {
+            @Override
+            public void entityUpdated() {
+                refresh();
+            }
+        });
     }
     private void configTable(){
         model.setColumnCount(4);
@@ -84,6 +89,7 @@ public class FiltroTiposAusenciaPane extends WebPanel {
         Object o[];
         model.setRowCount(0);
         for(TiposAusenciaEntity entity:tiposAusenciaService.findAllTiposAusencias()){
+            PrincipalFrame.EM.refresh(entity);
             o=new Object[4];
             o[0]=true;
             o[1]=entity.getId();
@@ -91,6 +97,10 @@ public class FiltroTiposAusenciaPane extends WebPanel {
             o[3]=entity.getDescripcion();
             model.addRow(o);
         }
+        revalidate();
+    }
+    public void refresh(){
+        fillTiposAusencias();
     }
     private void fireUpdate(){
         this.firePropertyChange("DataUpdated",1,0);

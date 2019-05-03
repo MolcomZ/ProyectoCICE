@@ -39,8 +39,10 @@ public class AutoSizeableTable extends WebTable {
     public void adjustColumnTitle(Integer column){
         String headerText=this.getColumnName(column);
         Graphics g=this.getTableHeader().getGraphics();
-        Integer headerWidth=g.getFontMetrics().stringWidth(headerText);
-        adjustColumnMax(column,headerWidth+HEADERSAFE);
+        if(g!=null) {
+            Integer headerWidth = g.getFontMetrics().stringWidth(headerText);
+            adjustColumnMax(column, headerWidth + HEADERSAFE);
+        }
     }
     private void adjustColumnMax(Integer column, Integer max){
         int width;
@@ -48,12 +50,47 @@ public class AutoSizeableTable extends WebTable {
         Graphics g=this.getGraphics();
 
         for(int n=0;n<this.getRowCount();n++){
-            width=g.getFontMetrics().stringWidth(this.getValueAt(n,column).toString());
+            try {
+                width = g.getFontMetrics().stringWidth(this.getValueAt(n, column).toString());
+                //PRUEBA CON PREFERRED SIZE
+                width= (int) this.getCellRenderer(n,column).getTableCellRendererComponent(this,
+                        getValueAt(n,column),
+                        false,
+                        false,
+                        n,
+                        column).getPreferredSize().getWidth();
+            }catch(Exception e){
+                width=0;
+            }
             if(width>max){
                 max=width;
             }
         }
         this.getColumn(this.getColumnName(column)).setPreferredWidth(max+SAFE);
+    }
+    public void adjustRowMax(Integer row, Integer max){
+        int height=0;
+
+        Graphics g=this.getGraphics();
+
+        for(int n=0;n<this.getColumnCount();n++){
+            try {
+                //height = g.getFontMetrics().stringWidth(this.getValueAt(n, column).toString());
+                //PRUEBA CON PREFERRED SIZE
+                height= (int) this.getCellRenderer(row,n).getTableCellRendererComponent(this,
+                        getValueAt(row,n),
+                        false,
+                        false,
+                        row,
+                        n).getPreferredSize().getHeight();
+            }catch(Exception e){
+                height=max;
+            }
+            if(height>max){
+                max=height;
+            }
+        }
+        this.setRowHeight(row,max);
     }
     private void initListenerMenu(){
 

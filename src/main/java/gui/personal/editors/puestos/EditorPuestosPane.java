@@ -5,12 +5,14 @@ import com.alee.laf.label.WebLabel;
 import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.panel.WebPanel;
 import com.alee.laf.scroll.WebScrollPane;
+import gui.PrincipalFrame;
 import jpa.puestos.PuestoEntity;
 import jpa.puestos.PuestoService;
 import jpa.secciones.SeccionEntity;
 import jpa.secciones.SeccionService;
 import net.miginfocom.swing.MigLayout;
 import util.AutoSizeableTable;
+import util.EntityListenerManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -36,9 +38,6 @@ public class EditorPuestosPane extends WebPanel {
     private WebScrollPane scroll;
     private DefaultTableModel model;
 
-    //PERSISTENCE
-    private EntityManagerFactory EMF;
-    private EntityManager EM;
     private PuestoService puestoService;
     private SeccionService seccionService;
     
@@ -48,7 +47,7 @@ public class EditorPuestosPane extends WebPanel {
         layout=new MigLayout("","[GROW]","[][][GROW]");
         setLayout(layout);
         addButton=new WebButton(new ImageIcon(getClass().getResource("/Add.png")));
-        removeButton=new WebButton(new ImageIcon(getClass().getResource("/Delete.png")));
+        removeButton=new WebButton(new ImageIcon(getClass().getResource("/Remove.png")));
         titlePane=new WebPanel();
         titlePane.setUndecorated(false);
         titlePane.setRound(4);
@@ -63,10 +62,8 @@ public class EditorPuestosPane extends WebPanel {
         add(titlePane,"GROWX,WRAP");
         add(scroll,"GROW,WRAP");
 
-        EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
-        EM=EMF.createEntityManager();
-        puestoService=new PuestoService(EM);
-        seccionService=new SeccionService(EM);
+        puestoService=new PuestoService(PrincipalFrame.EM);
+        seccionService=new SeccionService(PrincipalFrame.EM);
 
         configTable();
         initListeners();
@@ -123,7 +120,7 @@ public class EditorPuestosPane extends WebPanel {
     private void addPuesto(){
         if(selectedSeccionEntity==null){
             WebOptionPane.showMessageDialog(this,
-                    "No hay seleccionada ninguna seccion autónoma.",
+                    "No hay seleccionada ninguna sección.",
                     "Error",
                     WebOptionPane.ERROR_MESSAGE
             );
@@ -131,36 +128,37 @@ public class EditorPuestosPane extends WebPanel {
         }
         try{
             puestoService.createPuesto(null,"",selectedSeccionEntity);
-            firePropertyChange(UPDATE_EVENT,1,0);
         }catch(Exception e){
             WebOptionPane.showMessageDialog(this,
                     "Error al agregar registro.",
                     "Error",
                     WebOptionPane.ERROR_MESSAGE
             );
+            return;
         }
         fillPuestos();
         table.setSelectedRow(table.getRowCount()-1);
+        firePropertyChange(UPDATE_EVENT,1,0);
+        EntityListenerManager.fireEntityUpdated(PuestoEntity.class);
     }
     private void editPuesto(){
         int row=table.getSelectedRow();
         PuestoEntity entity=getSelectedPuesto();
         if(entity!=null){
-            System.out.println("editPuesto: "+entity.getId());
             try {
                 puestoService.updatePuesto(entity.getId(), entity.getNombre(),entity.getSeccion());
-                firePropertyChange(UPDATE_EVENT,1,0);
             }catch(Exception e){
                 WebOptionPane.showMessageDialog(this,
                         "Error al editar registro.",
                         "Error",
                         WebOptionPane.ERROR_MESSAGE
                 );
-                e.printStackTrace();
+                return;
             }
-            //fillPuestos();
         }
         table.setSelectedRow(row);
+        firePropertyChange(UPDATE_EVENT,1,0);
+        EntityListenerManager.fireEntityUpdated(PuestoEntity.class);
     }
     private void deletePuesto(){
         PuestoEntity entity=getSelectedPuesto();
@@ -176,6 +174,7 @@ public class EditorPuestosPane extends WebPanel {
                         WebOptionPane.ERROR_MESSAGE
                 );
             }
+            EntityListenerManager.fireEntityUpdated(PuestoEntity.class);
             fillPuestos();
         }
         if(table.getRowCount()>selectedRow){

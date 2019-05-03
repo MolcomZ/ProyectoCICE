@@ -5,10 +5,12 @@ import com.alee.laf.label.WebLabel;
 import com.alee.laf.optionpane.WebOptionPane;
 import com.alee.laf.panel.WebPanel;
 import com.alee.laf.scroll.WebScrollPane;
+import gui.PrincipalFrame;
 import jpa.secciones.SeccionEntity;
 import jpa.secciones.SeccionService;
 import net.miginfocom.swing.MigLayout;
 import util.AutoSizeableTable;
+import util.EntityListenerManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -22,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.security.Principal;
 
 public class EditorSeccionesPane extends WebPanel {
     public static final String UPDATE_EVENT="UPDATED";
@@ -35,16 +38,13 @@ public class EditorSeccionesPane extends WebPanel {
     private WebScrollPane scroll;
     private DefaultTableModel model;
 
-    //PERSISTENCE
-    private EntityManagerFactory EMF;
-    private EntityManager EM;
     private SeccionService seccionService;
 
     public EditorSeccionesPane(){
         layout=new MigLayout("","[GROW]","[][][GROW]");
         setLayout(layout);
         addButton=new WebButton(new ImageIcon(getClass().getResource("/Add.png")));
-        removeButton=new WebButton(new ImageIcon(getClass().getResource("/Delete.png")));
+        removeButton=new WebButton(new ImageIcon(getClass().getResource("/Remove.png")));
         titlePane=new WebPanel();
         titlePane.setUndecorated(false);
         titlePane.setRound(4);
@@ -59,9 +59,7 @@ public class EditorSeccionesPane extends WebPanel {
         add(titlePane,"GROWX,WRAP");
         add(scroll,"GROW,WRAP");
 
-        EMF=Persistence.createEntityManagerFactory("MySQL_JPA");
-        EM=EMF.createEntityManager();
-        seccionService=new SeccionService(EM);
+        seccionService=new SeccionService(PrincipalFrame.EM);
 
         configTable();
         fillSecciones();
@@ -124,6 +122,7 @@ public class EditorSeccionesPane extends WebPanel {
                     WebOptionPane.ERROR_MESSAGE
             );
         }
+        EntityListenerManager.fireEntityUpdated(SeccionEntity.class);
         fillSecciones();
         table.setSelectedRow(table.getRowCount()-1);
     }
@@ -134,6 +133,7 @@ public class EditorSeccionesPane extends WebPanel {
             try {
                 seccionService.updateSeccion(entity.getId(), entity.getNombre());
                 firePropertyChange(UPDATE_EVENT,1,0);
+                EntityListenerManager.fireEntityUpdated(SeccionEntity.class);
             }catch(Exception e){
                 WebOptionPane.showMessageDialog(this,
                         "Error al editar registro.",
@@ -152,6 +152,7 @@ public class EditorSeccionesPane extends WebPanel {
             try {
                 seccionService.removeSeccion(entity.getId());
                 firePropertyChange(UPDATE_EVENT,1,0);
+                EntityListenerManager.fireEntityUpdated(SeccionEntity.class);
             }catch(Exception e){
                 WebOptionPane.showMessageDialog(this,
                         "Error al eliminar registro.",
