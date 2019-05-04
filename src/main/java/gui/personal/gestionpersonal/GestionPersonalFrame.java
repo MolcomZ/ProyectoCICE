@@ -129,7 +129,7 @@ public class GestionPersonalFrame{
         refreshButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                refresh();
+                //refresh();
             }
         });
         filtrosFrame.addPropertyChangeListener(new PropertyChangeListener() {
@@ -144,19 +144,19 @@ public class GestionPersonalFrame{
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
-        empleadosFrame.addPropertyChangeListener(new PropertyChangeListener() {
-            @Override
-            public void propertyChange(PropertyChangeEvent evt) {
-                if(evt.getPropertyName().equals(empleadosFrame.DATA_CHANGED)){
-                    refresh();
-                }
-            }
-        });
+//        empleadosFrame.addPropertyChangeListener(new PropertyChangeListener() {
+  //          @Override
+    //        public void propertyChange(PropertyChangeEvent evt) {
+      //          if(evt.getPropertyName().equals(empleadosFrame.DATA_CHANGED)){
+        //            refresh();
+          //      }
+   //         }
+     //   });
     }
-    private void refresh(){
-        empleadosPane.refresh();
-        ausenciasPane.refresh();
-    }
+    //private void refresh(){
+      //  empleadosPane.refresh();
+      //  ausenciasPane.refresh();
+   // }
     private void updateFilters(){
         empleadosPane.updateFilters(filtrosFrame.getSelectedTurnos(),filtrosFrame.getSelectedPuestos());
         ausenciasPane.updateFilters(filtrosFrame.getSelectedTurnos(),filtrosFrame.getSelectedPuestos());

@@ -160,6 +160,7 @@ public class ConfirmadasPane extends WebPanel {
     public void addConfirmada(){
         Date date=new Date();
         service.createAusenciasConfirmadas(ausencia,date,date);
+        EntityListenerManager.fireEntityUpdated(AusenciasConfirmadasEntity.class);
         fillTable();
         if(table.getRowCount()>0)table.setSelectedRow(table.getRowCount()-1);
     }
@@ -168,6 +169,7 @@ public class ConfirmadasPane extends WebPanel {
         try{
             if(row!=-1) {
                 service.removeAusenciasConfirmadas(getSelectedConfirmada().getId());
+                EntityListenerManager.fireEntityUpdated(AusenciasConfirmadasEntity.class);
                 fillTable();
                 if(table.getRowCount()>row){
                     table.setSelectedRow(row);
@@ -198,6 +200,7 @@ public class ConfirmadasPane extends WebPanel {
                         entity.getAusencia(),
                         entity.getInicio(),
                         entity.getFin());
+                EntityListenerManager.fireEntityUpdated(AusenciasConfirmadasEntity.class);
             }catch(Exception e){
                 WebOptionPane.showMessageDialog(this,
                         "Error al editar registro.",

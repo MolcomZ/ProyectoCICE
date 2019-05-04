@@ -40,12 +40,12 @@ public class AusenciasPane extends WebPanel {
         fillColors();
     }
     public void saveSettings(){
-        //UserSettings.clearAusenciasColors();
-        //for(Component c:this.getComponents()){
-         //   if(c instanceof ColorPicker){
-          //      UserSettings.addAusenciasColors(((ColorPicker) c).id,((ColorPicker) c).color);
-           // }
-       // }
+        PrincipalFrame.setting.clearAusenciaColorList();
+        for(Component c:this.getComponents()){
+            if(c instanceof ColorPicker){
+                PrincipalFrame.setting.addAusenciaColor(((ColorPicker) c).id,((ColorPicker) c).color);
+            }
+        }
         try {
             PrincipalFrame.setting.saveSettings();
         } catch (JAXBException e) {
@@ -74,8 +74,9 @@ public class AusenciasPane extends WebPanel {
             //button.setUndecorated(false);
             setLayout(new HorizontalFlowLayout());
             label.setText(nombre);
-            //color=UserSettings.getAusenciasColors(id);
-            setColor(color);
+            if( (color=PrincipalFrame.setting.getAusenciaColor(id))!=null){
+                setColor(color);
+            }
             setPreferredSize(new Dimension(20,20));
             this.id=id;
             add(button);

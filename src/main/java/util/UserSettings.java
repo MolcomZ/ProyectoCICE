@@ -17,6 +17,7 @@ public class UserSettings {
 
     private int sabadoIntColor=Color.WHITE.getRGB();
     private int domingoIntColor=Color.CYAN.getRGB();
+    private ArrayList<LongColorPair> ausenciasColorList=new ArrayList<>();
 
     public Color getSabadoColor() {
         return new Color(sabadoIntColor);
@@ -50,6 +51,29 @@ public class UserSettings {
         this.domingoIntColor = domingoIntColor;
     }
 
+    public ArrayList<LongColorPair> getAusenciasColorList() {
+        return ausenciasColorList;
+    }
+
+    public void setAusenciasColorList(ArrayList<LongColorPair> ausenciasColorList) {
+        this.ausenciasColorList = ausenciasColorList;
+    }
+
+    public void clearAusenciaColorList(){
+        ausenciasColorList.clear();
+    }
+    public void addAusenciaColor(Long id, Color color){
+        ausenciasColorList.add(new LongColorPair(id,color.getRGB()));
+    }
+    public Color getAusenciaColor(Long id){
+        for(LongColorPair pair:ausenciasColorList){
+            if(pair.getId()==id){
+                return new Color(pair.getColor());
+            }
+        }
+        return null;
+    }
+
     public void loadSettings() throws JAXBException, FileNotFoundException {
         UserSettings tempSettings;
         File file=new File(FILE);
@@ -58,6 +82,7 @@ public class UserSettings {
         tempSettings=(UserSettings) jaxbUnmarshaller.unmarshal(file);
         this.setSabadoColor(tempSettings.getSabadoIntColor());
         this.setDomingoColor(tempSettings.getDomingoIntColor());
+        this.setAusenciasColorList(tempSettings.getAusenciasColorList());
     }
 
     public void saveSettings() throws JAXBException {

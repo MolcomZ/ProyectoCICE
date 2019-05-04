@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <setting>
+    <ausenciasColorList id="1">
+        <color>-16727809</color>
+    </ausenciasColorList>
+    <ausenciasColorList id="2">
+        <color>-16760672</color>
+    </ausenciasColorList>
+    <ausenciasColorList id="3">
+        <color>-66051</color>
+    </ausenciasColorList>
+    <ausenciasColorList id="5">
+        <color>-16728000</color>
+    </ausenciasColorList>
+    <ausenciasColorList id="6">
+        <color>-2080608</color>
+    </ausenciasColorList>
     <domingoIntColor>-4590116</domingoIntColor>
     <sabadoIntColor>-150567</sabadoIntColor>
 </setting>

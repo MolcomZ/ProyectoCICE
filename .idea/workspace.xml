@@ -9,102 +9,21 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java" line="282" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a244d8ce-f048-4498-aa01-297dc278a6ea" name="Default" comment="Comenzando calendario...">
+    <list default="true" id="a244d8ce-f048-4498-aa01-297dc278a6ea" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestionEmpleadoFrame.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestionLocalidadesFrame.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestionPersonalFrame.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PuestoPane.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/GestionLocalidadesFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/GestionLocalidadesFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/EmpleadosPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/EmpleadosPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/EmpleadosTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/EmpleadosTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/GestionPersonalFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/GestionPersonalFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/ausencias/AusenciasPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/AusenciasPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/ausencias/DayTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/DayTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/editors/ausencias/EditorAusenciasFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/editors/ausencias/EditorAusenciasFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/editors/puestos/EditorPuestosPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/editors/puestos/EditorPuestosPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/editors/puestos/EditorSeccionesPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/editors/puestos/EditorSeccionesPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/editors/turnos/EditorTurnosFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/editors/turnos/EditorTurnosFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/filtros/ausencias/FiltroTiposAusenciaPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/filtros/ausencias/FiltroTiposAusenciaPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/filtros/ausencias/TiposAusenciaTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/filtros/ausencias/TiposAusenciaTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/filtros/puestos/FiltroPuestosPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/filtros/puestos/FiltroPuestosPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/filtros/turnos/FiltroTurnosPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/filtros/turnos/FiltroTurnosPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GestionEmpleadoFrame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GestionEmpleadoFrame.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GestionPersonalFrame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GestionPersonalFrame.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestoPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestoPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/ConfirmadasPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/ConfirmadasPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/TiposPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/TiposPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/jpa/ausenciasempleado/AusenciasEmpleadoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/jpa/ausenciasempleado/AusenciasEmpleadoEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/AutoSizeableTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/AutoSizeableTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayCellRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayCellRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/EmpleadosPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/EmpleadosPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/GestionPersonalFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/GestionPersonalFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/AusenciasPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/AusenciasPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/DiasDeSemanaPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/DiasDeSemanaPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/SemanasDelYearPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/SemanasDelYearPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/settings/appearance/AusenciasPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/settings/appearance/AusenciasPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/UserSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/UserSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayValueList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayValueList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Add.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Add2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Add2_pressed.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Apply.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Error.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Favourites.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/List.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Lock.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Low rating.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/No.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Refresh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Remove2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Stop sign.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Warning.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Add.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Add.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Apply.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Delete.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Error.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Favourites.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/List.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Low rating.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/No.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Refresh.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Refresh.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Stop sign.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Warning.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GestionLocalidadesFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/EmpleadosPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/EmpleadosTable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/GestionPersonalFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/editors/puestos/EditorPuestosPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/editors/puestos/EditorPuestosPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/editors/puestos/EditorSeccionesPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/editors/puestos/EditorSeccionesPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/editors/turnos/EditorTurnosFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/editors/turnos/EditorTurnosFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/editors/turnos/EditorTurnosFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/editors/turnos/EditorTurnosFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/editors/turnos/EditorTurnosFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/editors/turnos/EditorTurnosFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/editors/turnos/EditorTurnosFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/editors/turnos/EditorTurnosFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/filtros/puestos/FiltroPuestosPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/filtros/puestos/FiltroPuestosPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/filtros/turnos/FiltroTurnosPane$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/filtros/turnos/FiltroTurnosPane$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/filtros/turnos/FiltroTurnosPane$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/filtros/turnos/FiltroTurnosPane$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/filtros/turnos/FiltroTurnosPane.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/personal/filtros/turnos/FiltroTurnosPane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/util/TurnoCellEditor$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/gui/personal/util/TurnoCellEditor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/util/AutoSizeableTable.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -123,32 +42,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TiposPane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/TiposPane.java">
+      <file leaf-file-name="UserSettings.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/util/UserSettings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3440">
-              <caret line="210" column="12" selection-start-line="210" selection-start-column="12" selection-end-line="210" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GestionEmpleadoFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="81" column="80" selection-start-line="81" selection-start-column="80" selection-end-line="81" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DiasDeSemanaPane.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/DiasDeSemanaPane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3740">
-              <caret line="187" selection-start-line="187" selection-end-line="187" />
+            <state relative-caret-position="235">
+              <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#932#933#0" expanded="true" />
+                <element signature="e#969#970#0" expanded="true" />
+                <element signature="e#1026#1027#0" expanded="true" />
+                <element signature="e#1078#1079#0" expanded="true" />
+                <element signature="e#1117#1118#0" expanded="true" />
+                <element signature="e#1155#1156#0" expanded="true" />
+                <element signature="e#1214#1215#0" expanded="true" />
+                <element signature="e#1268#1269#0" expanded="true" />
+                <element signature="e#1406#1407#0" expanded="true" />
+                <element signature="e#1447#1448#0" expanded="true" />
+                <element signature="e#1386#1387#0" expanded="true" />
+                <element signature="e#1428#1429#0" expanded="true" />
+                <element signature="e#1404#1405#0" expanded="true" />
+                <element signature="e#1437#1438#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettingsFrame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/settings/SettingsFrame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="118">
+              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -156,7 +79,7 @@
       <file leaf-file-name="CalendarDayCellRenderer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayCellRenderer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="158">
               <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
             </state>
           </provider>
@@ -165,31 +88,30 @@
       <file leaf-file-name="CalendarDayComponent.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayComponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+            <state relative-caret-position="520">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SemanasDelYearPane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/SemanasDelYearPane.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3540">
-              <caret line="204" column="65" selection-start-line="204" selection-start-column="65" selection-end-line="204" selection-end-column="65" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WeekTable.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/WeekTable.java">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="AusenciasPane.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/AusenciasPane.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/settings/appearance/AusenciasPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="235">
+              <caret line="76" column="68" selection-start-line="76" selection-start-column="68" selection-end-line="76" selection-end-column="68" />
+              <folding>
+                <element signature="e#3793#3794#0" expanded="true" />
+                <element signature="e#3829#3830#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SemanasDelYearPane.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/SemanasDelYearPane.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="231" column="70" selection-start-line="231" selection-start-column="70" selection-end-line="231" selection-end-column="70" />
             </state>
           </provider>
         </entry>
@@ -197,20 +119,46 @@
       <file leaf-file-name="AusenciasPane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/AusenciasPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1540">
-              <caret line="116" column="72" selection-start-line="116" selection-start-column="72" selection-end-line="116" selection-end-column="72" />
+            <state relative-caret-position="538">
+              <caret line="163" selection-start-line="163" selection-end-line="163" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GestionPersonalFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/GestionPersonalFrame.java">
+      <file leaf-file-name="DiasDeSemanaPane.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/DiasDeSemanaPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2520">
-              <caret line="157" column="8" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="8" />
+            <state relative-caret-position="275">
+              <caret line="195" column="70" selection-start-line="195" selection-start-column="70" selection-end-line="195" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3439#3440#0" expanded="true" />
+                <element signature="e#3480#3481#0" expanded="true" />
+                <element signature="e#7994#7995#0" expanded="true" />
+                <element signature="e#8036#8037#0" expanded="true" />
+                <element signature="e#8334#8335#0" expanded="true" />
+                <element signature="e#8380#8381#0" expanded="true" />
+                <element signature="e#8448#8449#0" expanded="true" />
+                <element signature="e#8509#8510#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalendarDayValue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayValue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-720">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CalendarDayValueList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayValueList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -327,22 +275,22 @@
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/settings/appearance/AppearancePane.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/settings/appearance/CalendariosPane.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/UserSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayCellRenderer.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/EmpleadosPane.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/settings/appearance/AusenciasPane.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/ConfirmadasPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/GestionLocalidadesFrame.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/filtros/ausencias/TiposAusenciaTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/TiposPane.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/DiasDeSemanaPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/WeekTable.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/SemanaDelYearPane.java" />
-        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/GestionPersonalFrame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/ConfirmadasPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/AusenciasPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/GestionPersonalFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/EmpleadosPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/UserSettings.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/settings/appearance/AusenciasPane.java" />
+        <option value="$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/DiasDeSemanaPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/SemanasDelYearPane.java" />
       </list>
     </option>
@@ -428,27 +376,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="gui" type="462c0819:PsiDirectoryNode" />
               <item name="personal" type="462c0819:PsiDirectoryNode" />
-              <item name="gestion_empleado" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProyectoCICE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProyectoCICE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-              <item name="personal" type="462c0819:PsiDirectoryNode" />
-              <item name="gestion_empleado" type="462c0819:PsiDirectoryNode" />
-              <item name="ausencias" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProyectoCICE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProyectoCICE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-              <item name="personal" type="462c0819:PsiDirectoryNode" />
               <item name="gestionpersonal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -468,16 +395,8 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jpa" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ProyectoCICE" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ProyectoCICE" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jpa" type="462c0819:PsiDirectoryNode" />
-              <item name="ausenciasempleado" type="462c0819:PsiDirectoryNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="settings" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ProyectoCICE" type="b2602c69:ProjectViewProjectNode" />
@@ -520,8 +439,8 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -703,7 +622,14 @@
       <option name="project" value="LOCAL" />
       <updated>1555376469487</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Reestructuración">
+      <created>1556920747970</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1556920747970</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -728,12 +654,12 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32962447" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.52080536" side_tool="true" weight="0.43949932" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.52080536" side_tool="true" visible="true" weight="0.43949932" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.2261745" weight="0.28789985" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.78720444" visible="true" weight="0.3456376" />
-      <window_info id="Structure" order="6" sideWeight="0.21279556" side_tool="true" visible="true" weight="0.3456376" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7841191" visible="true" weight="0.35033557" />
+      <window_info id="Structure" order="6" sideWeight="0.2158809" side_tool="true" visible="true" weight="0.35033557" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="3" />
       <window_info anchor="right" id="Theme Preview" order="5" />
@@ -759,7 +685,8 @@
     <MESSAGE value="Varios avances..." />
     <MESSAGE value="Varios avances y limpieza..." />
     <MESSAGE value="Comenzando calendario..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Comenzando calendario..." />
+    <MESSAGE value="Reestructuración" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reestructuración" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -776,69 +703,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/AutoSizeableTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/DayTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/settings/appearance/AppearancePane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/UserSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="55" column="70" selection-start-line="55" selection-start-column="70" selection-end-line="55" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayValue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/editors/puestos/EditorPuestosFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/settings/SettingsFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/settings/appearance/CalendariosPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="44" column="69" selection-start-line="44" selection-start-column="69" selection-end-line="44" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -876,13 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/EmpleadosPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="154" column="15" selection-start-line="154" selection-start-column="15" selection-end-line="154" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/a.png" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/Add.png">
       <provider selected="true" editor-type-id="images" />
@@ -910,13 +767,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/Error.png" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/Edit.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/settings/appearance/AusenciasPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="71" column="2" selection-start-line="71" selection-start-column="2" selection-end-line="71" selection-end-column="2" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/GestionLocalidadesFrame.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -946,13 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/ConfirmadasPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3460">
-          <caret line="207" column="13" selection-start-line="195" selection-start-column="12" selection-end-line="207" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/PuestoPane.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2920">
@@ -977,65 +820,179 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/WeekTable.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="81" column="80" selection-start-line="81" selection-start-column="80" selection-end-line="81" selection-end-column="80" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/AusenciasPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
+        <state relative-caret-position="21">
           <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/EntityListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/EntityListenerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/ausencias/ConfirmadasPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="758">
+          <caret line="162" column="82" selection-start-line="162" selection-start-column="82" selection-end-line="162" selection-end-column="82" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/GestionPersonalFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2520">
-          <caret line="157" column="8" selection-start-line="157" selection-start-column="8" selection-end-line="157" selection-end-column="8" />
+        <state relative-caret-position="480">
+          <caret line="131" column="18" selection-start-line="131" selection-start-column="18" selection-end-line="131" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayCellRenderer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/EmpleadosPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+        <state relative-caret-position="1620">
+          <caret line="149" column="51" selection-start-line="149" selection-start-column="51" selection-end-line="149" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayComponent.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestion_empleado/GestionEmpleadoFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+        <state relative-caret-position="60">
+          <caret line="296" selection-start-line="296" selection-end-line="296" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/settings/appearance/AppearancePane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/settings/appearance/CalendariosPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="44" column="69" selection-start-line="44" selection-start-column="69" selection-end-line="44" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/settings/SettingsFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/UserSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
+          <folding>
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+            <element signature="e#1078#1079#0" expanded="true" />
+            <element signature="e#1117#1118#0" expanded="true" />
+            <element signature="e#1155#1156#0" expanded="true" />
+            <element signature="e#1214#1215#0" expanded="true" />
+            <element signature="e#1268#1269#0" expanded="true" />
+            <element signature="e#1406#1407#0" expanded="true" />
+            <element signature="e#1447#1448#0" expanded="true" />
+            <element signature="e#1386#1387#0" expanded="true" />
+            <element signature="e#1428#1429#0" expanded="true" />
+            <element signature="e#1404#1405#0" expanded="true" />
+            <element signature="e#1437#1438#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/settings/appearance/AusenciasPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="76" column="68" selection-start-line="76" selection-start-column="68" selection-end-line="76" selection-end-column="68" />
+          <folding>
+            <element signature="e#3793#3794#0" expanded="true" />
+            <element signature="e#3829#3830#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/AusenciasPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1540">
-          <caret line="116" column="72" selection-start-line="116" selection-start-column="72" selection-end-line="116" selection-end-column="72" />
+        <state relative-caret-position="538">
+          <caret line="163" selection-start-line="163" selection-end-line="163" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/SemanasDelYearPane.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayValue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3540">
-          <caret line="204" column="65" selection-start-line="204" selection-start-column="65" selection-end-line="204" selection-end-column="65" />
+        <state relative-caret-position="-720">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayValueList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/util/calendarday/CalendarDayCellRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="26" column="41" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/DiasDeSemanaPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3740">
-          <caret line="187" selection-start-line="187" selection-end-line="187" />
+        <state relative-caret-position="275">
+          <caret line="195" column="70" selection-start-line="195" selection-start-column="70" selection-end-line="195" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3439#3440#0" expanded="true" />
+            <element signature="e#3480#3481#0" expanded="true" />
+            <element signature="e#7994#7995#0" expanded="true" />
+            <element signature="e#8036#8037#0" expanded="true" />
+            <element signature="e#8334#8335#0" expanded="true" />
+            <element signature="e#8380#8381#0" expanded="true" />
+            <element signature="e#8448#8449#0" expanded="true" />
+            <element signature="e#8509#8510#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/gui/personal/gestionpersonal/ausencias/SemanasDelYearPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="231" column="70" selection-start-line="231" selection-start-column="70" selection-end-line="231" selection-end-column="70" />
         </state>
       </provider>
     </entry>

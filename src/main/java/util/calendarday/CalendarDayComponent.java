@@ -15,7 +15,7 @@ public class CalendarDayComponent extends JLabel {
     private boolean isSelected;
     private Color selectionColor;
     private WebDecoratedImage image;
-    private CalendarDayItem item;
+    //private CalendarDayItem item;
 
     public CalendarDayComponent(){
         values=new CalendarDayValueList();
@@ -25,7 +25,7 @@ public class CalendarDayComponent extends JLabel {
         image.setRound(1);
         UIDefaults defaults=UIManager.getDefaults();
         selectionColor=defaults.getColor("Table.selectionBackground");
-        item=new CalendarDayItem(Color.ORANGE,"TEXT");
+//        item=new CalendarDayItem(Color.ORANGE,"TEXT");
     }
     public void setValues(CalendarDayValueList values){
         this.values=values;
@@ -45,7 +45,6 @@ public class CalendarDayComponent extends JLabel {
             label.setForeground(Color.BLACK);
             label.setBackground(value.getColor());
         }
-
         add(new CalendarDayItem(value.getColor(),value.getText()));
         //add(image);
         //add(label);

@@ -14,6 +14,8 @@ import jpa.empleados.EmpleadoService;
 import jpa.puestos.PuestoEntity;
 import jpa.turnos.TurnoEntity;
 import net.miginfocom.swing.MigLayout;
+import util.EntityListener;
+import util.EntityListenerManager;
 import util.calendarday.CalendarDayCellRenderer;
 import util.calendarday.CalendarDayValue;
 import util.calendarday.CalendarDayValueList;
@@ -93,6 +95,12 @@ public class DiasDeSemanaPane extends WebPanel {
                 fillTable();
             }
         });
+        EntityListenerManager.addListener(AusenciasConfirmadasEntity.class, new EntityListener() {
+            @Override
+            public void entityUpdated() {
+                refresh();
+            }
+        });
         table.setSelectionModel(empleadosPane.getSelectionModel());
         scroll.getVerticalScrollBar().setModel(empleadosPane.getScrollModel());
     }
@@ -143,7 +151,7 @@ public class DiasDeSemanaPane extends WebPanel {
     private void fillTable() {
         TableRowSorter<DefaultTableModel> sorter= (TableRowSorter<DefaultTableModel>) table.getRowSorter();
         table.setRowSorter(null);
-        ArrayList<EmpleadoEntity> list = new ArrayList<>();
+        ArrayList<EmpleadoEntity> list;
         model.setRowCount(0);
         Object o[];
         list = (ArrayList<EmpleadoEntity>) empleadoService.findAllEmpleados();
@@ -185,12 +193,23 @@ public class DiasDeSemanaPane extends WebPanel {
                 value = new CalendarDayValue();
                 value.setId(confirmadas.getAusencia().getTipo().getId());
                 value.setText(confirmadas.getAusencia().getTipo().getNombre());
-                //value.setColor(util.UserSettings.getAusenciasColors(value.getId()));
+                value.setColor(PrincipalFrame.setting.getAusenciaColor(value.getId()));
                 list.add(value);
             }
         }
         return list;
     }
+    public void refresh() {
+        Integer row=table.getSelectedRow();
+        fillTable();
+         if(table.getRowCount()>row){
+             table.setSelectedRow(row);
+         }else{
+             table.setSelectedRow(table.getRowCount());
+         }
+        System.out.println("DiasDeSemanaPane refreshed");
+    }
+
     public void updateFilters(ArrayList<TurnoEntity> turnosList, ArrayList<PuestoEntity> puestosList){
         empleadosPane.updateFilters(turnosList,puestosList);
         setRowSorter(empleadosPane.getSorter());

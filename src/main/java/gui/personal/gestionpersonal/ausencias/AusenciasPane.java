@@ -98,7 +98,7 @@ public class AusenciasPane extends WebPanel {
         puestoService=new PuestoService(PrincipalFrame.EM);
 
         configTable();
-        fillEmpleados();
+        //fillEmpleados();
         initListeners();
     }
     private void initListeners(){
@@ -128,63 +128,20 @@ public class AusenciasPane extends WebPanel {
             @Override
             public void entityUpdated() {
 //                refresh();
+                //fillEmpleados();
             }
         });
         EntityListenerManager.addListener(PuestoEntity.class, new EntityListener() {
             @Override
             public void entityUpdated() {
 //                refresh();
+                //fillEmpleados();
             }
         });
     }
     private void configTable(){
-//        model.setColumnCount(4);
-//        model.setColumnIdentifiers(new String[]{"ID","NOMBRE","APELLIDOS","TURNO","PUESTO"});
         TurnoCellRenderer turnoCellRenderer=new TurnoCellRenderer();
-//        table.getColumn("TURNO").setCellRenderer(turnoCellRenderer);
         PuestoCellRenderer puestoCellRenderer=new PuestoCellRenderer();
-//        table.getColumn("PUESTO").setCellRenderer(puestoCellRenderer);
-
-//        ausenciasModel.setColumnCount(3);
-//        ausenciasModel.setColumnIdentifiers(new String[]{"ID","TURNO","PUESTO","1"});
-//        CalendarDayCellRenderer dayRenderer=new CalendarDayCellRenderer();
-//        ausenciasTable.setDefaultRenderer(CalendarDayValueList.class,dayRenderer);
-//        ausenciasTable.setDefaultRenderer(TurnoEntity.class,turnoCellRenderer);
-//        ausenciasTable.setDefaultRenderer(PuestoEntity.class,puestoCellRenderer);
-        //scroll.getVerticalScrollBar().setModel(ausenciasScroll.getVerticalScrollBar().getModel());
-        //ausenciasScroll.getVerticalScrollBar().setModel(scroll.getVerticalScrollBar().getModel());
-        //table.setSelectionModel(ausenciasTable.getSelectionModel());
-
-        //diasSemanaPane.setSelectionModel(table.getSelectionModel());
-        //diasSemanaPane.setVerticalScrollBarModel(scroll.getVerticalScrollBar().getModel());
-    }
-    private void fillEmpleados(){
-        Object o[],o2[];
-        //model.setRowCount(0);
-
-        for(EmpleadoEntity entity:empleadoService.findAllEmpleados()){
-            o=new Object[5];
-            o[0]=entity.getId();
-            o[1]=entity.getNombre();
-            o[2]=entity.getApellido();
-            o[3]=entity.getTurno();
-            o[4]=entity.getPuesto();
-            //model.addRow(o);
-            o2=new Object[4];
-            o2[0]=entity.getId();
-            o2[1]=entity.getTurno();
-            o2[2]=entity.getPuesto();
-            ArrayList<CalendarDayValue> list=new ArrayList<>();
-            list.add(new CalendarDayValue(1l,"A.P",Color.ORANGE));
-            list.add(new CalendarDayValue(2l,"V. Verano",Color.GREEN));
-            list.add(new CalendarDayValue(3l,"V. Invierno",Color.CYAN));
-            list.add(new CalendarDayValue(3l,"F. Local",Color.MAGENTA));
-            o2[3]=new CalendarDayValueList(list);
-            //ausenciasModel.addRow(o2);
-        }
-        //for(int n=0;n<ausenciasTable.getRowCount();n++){
-          //  ausenciasTable.setRowHeight(n,68);
-        //}
     }
     public void updateFilters(ArrayList<TurnoEntity> turnosList, ArrayList<PuestoEntity> puestosList){
         diasSemanaPane.updateFilters(turnosList,puestosList);
@@ -203,6 +160,9 @@ public class AusenciasPane extends WebPanel {
         return entity;
     }
     public void refresh(){
+        diasSemanaPane.refresh();
+
+
         //Integer row=table.getSelectedRow();
         //fillEmpleados();
        // if(table.getRowCount()>row){

@@ -147,6 +147,7 @@ public class EmpleadosPane extends WebPanel {
         }else{
             table.setSelectedRow(table.getRowCount());
         }
+        System.out.println("EmpleadosPane refreshed");
     }
     public ListSelectionModel getSelectionModel(){
         return table.getSelectionModel();

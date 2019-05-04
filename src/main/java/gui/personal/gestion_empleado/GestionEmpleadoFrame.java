@@ -240,7 +240,7 @@ public class GestionEmpleadoFrame {
             return;
         }
         WebOptionPane.showMessageDialog(frame,"Empleado eliminado.");
-        frame.firePropertyChange(DATA_CHANGED,1,0);
+        EntityListenerManager.fireEntityUpdated(EmpleadoEntity.class);
         frame.dispose();
     }
     public boolean addEmpleado(){
@@ -260,8 +260,8 @@ public class GestionEmpleadoFrame {
         puesto=puestoService.findAllPuestos().get(0);
         empleado=empleadoService.createEmpleado(null,"","",turno,puesto);
         WebOptionPane.showMessageDialog(frame,"Empleado creado");
+        EntityListenerManager.fireEntityUpdated(EmpleadoEntity.class);
         fillEmpleadoData();
-        frame.firePropertyChange(DATA_CHANGED,1,0);
         return true;
     }
     private TurnoEntity getTurno(){
@@ -288,12 +288,12 @@ public class GestionEmpleadoFrame {
             puesto=puestoPane.getPuesto();
             turno=getTurno();
             empleadoService.updateEmpleado(empleado.getId(),id,nombre,apellido,turno,puesto);
-            frame.firePropertyChange(DATA_CHANGED,1,0);
         }catch(NumberFormatException e){
             WebOptionPane.showMessageDialog(frame,"El ID no es válido.");
         }catch(Exception e){
             WebOptionPane.showMessageDialog(frame,"Error al actualizar el registro.");
         }
+        EntityListenerManager.fireEntityUpdated(EmpleadoEntity.class);
     }
     public void addPropertyChangeListener(PropertyChangeListener listener){
         frame.addPropertyChangeListener(listener);

@@ -209,7 +209,7 @@ public class SemanasDelYearPane extends WebPanel {
                 value = new CalendarDayValue();
                 value.setId(confirmadas.getAusencia().getTipo().getId());
                 value.setText(confirmadas.getAusencia().getTipo().getNombre());
-                //value.setColor(util.UserSettings.getAusenciasColors(value.getId()));
+                value.setColor(PrincipalFrame.setting.getAusenciaColor(value.getId()));
                 list.add(value);
             }
         }
@@ -229,7 +229,7 @@ public class SemanasDelYearPane extends WebPanel {
                 value = new CalendarDayValue();
                 value.setId(confirmadas.getAusencia().getTipo().getId());
                 value.setText(confirmadas.getAusencia().getTipo().getNombre());
-                //value.setColor(util.UserSettings.getAusenciasColors(value.getId()));
+                value.setColor(PrincipalFrame.setting.getAusenciaColor(value.getId()));
                 list.add(value);
             }
         }
