@@ -9,16 +9,8 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java" line="284" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a244d8ce-f048-4498-aa01-297dc278a6ea" name="Default" comment="">
+    <list default="true" id="a244d8ce-f048-4498-aa01-297dc278a6ea" name="Default" comment="Mejorando la ventana settings...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestionPersonalFrame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/GestionPersonalFrame.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/PrincipalFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/settings/SettingsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/settings/SettingsFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/settings/appearance/AppearancePane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/settings/groups/AppearanceSettingsGroupPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/settings/appearance/AusenciasPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/settings/individual/AusenciasColorsSettingsPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/gui/settings/appearance/CalendariosPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/settings/individual/CalendariosColorsSettingsPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/util/UserSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/UserSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/PrincipalFrame$3.class" afterDir="false" />
@@ -107,8 +99,8 @@
       <file leaf-file-name="EditorEmpresasTransporteFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/gui/transporte/editors/empresas_transporte/EditorEmpresasTransporteFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1220">
-              <caret line="34" column="54" lean-forward="true" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+            <state relative-caret-position="140">
+              <caret line="108" column="13" lean-forward="true" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -608,7 +600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1556997826252</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Mejorando la ventana settings...">
+      <created>1557086077872</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1557086077872</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="3">
@@ -622,6 +621,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932885" weight="0.32962447" />
@@ -665,7 +665,8 @@
     <MESSAGE value="Comenzando calendario..." />
     <MESSAGE value="Reestructuración" />
     <MESSAGE value="Cleaning..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaning..." />
+    <MESSAGE value="Mejorando la ventana settings..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Mejorando la ventana settings..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1031,8 +1032,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/gui/transporte/editors/empresas_transporte/EditorEmpresasTransporteFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1220">
-          <caret line="34" column="54" lean-forward="true" selection-start-line="34" selection-start-column="54" selection-end-line="34" selection-end-column="54" />
+        <state relative-caret-position="140">
+          <caret line="108" column="13" lean-forward="true" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
         </state>
       </provider>
     </entry>
