@@ -6,9 +6,9 @@ import com.alee.laf.menu.WebMenuBar;
 import com.alee.laf.menu.WebMenuItem;
 import com.alee.laf.rootpane.WebFrame;
 import com.alee.laf.separator.WebSeparator;
-import com.sun.xml.internal.ws.api.config.management.policy.ManagementAssertion;
 import gui.contenedores.ContenedoresFrame;
 import gui.personal.editors.ausencias.EditorAusenciasFrame;
+import gui.transporte.editors.empresas_transporte.EditorEmpresasTransporteFrame;
 import gui.personal.editors.puestos.EditorPuestosFrame;
 import gui.personal.editors.turnos.EditorTurnosFrame;
 import gui.personal.gestionpersonal.GestionPersonalFrame;
@@ -45,6 +45,7 @@ public class PrincipalFrame {
     WebMenuItem puestos_menuitem;
     WebMenuItem turnos_menuitem;
     WebMenuItem ausencias_menuitem;
+    WebMenuItem empresastransporte_menuitem;
 
     WebMenu ventanas_menu;
     WebMenuItem lecturaContenedores_menuitem;
@@ -59,7 +60,6 @@ public class PrincipalFrame {
 
     WebMenuItem comunidadesautonomas_menuitem;
     WebMenuItem provincias_menuitem;
-    WebMenuItem empresastransporte_menuitem;
     WebMenuItem tabla_personal_menuitem;
     WebMenu tabla_ausencias_menu;
     WebMenuItem tipotabla_ausencias_menu;
@@ -80,6 +80,7 @@ public class PrincipalFrame {
     EditorPuestosFrame editorPuestosFrame;
     EditorTurnosFrame editorTurnosFrame;
     EditorAusenciasFrame editorAusenciasFrame;
+    EditorEmpresasTransporteFrame editorEmpresasTransporteFrame;
 //
 //    ComunidadesAutonomasFrame comunidadesautonomas;
 //    ProvinciasFrame provincias;
@@ -143,10 +144,12 @@ public class PrincipalFrame {
         puestos_menuitem=new WebMenuItem("Puestos");
         turnos_menuitem=new WebMenuItem("Turnos");
         ausencias_menuitem=new WebMenuItem("Ausencias");
+        empresastransporte_menuitem=new WebMenuItem("Empresas transporte");
         menu.add(edicion_menu);
         edicion_menu.add(puestos_menuitem);
         edicion_menu.add(turnos_menuitem);
         edicion_menu.add(ausencias_menuitem);
+        edicion_menu.add(empresastransporte_menuitem);
 
         ventanas_menu=new WebMenu("Ventanas");
         lecturaContenedores_menuitem=new WebMenuItem("Lectura de contenedores");
@@ -164,7 +167,6 @@ public class PrincipalFrame {
         tablas_menu=new WebMenu("Tablas");
         comunidadesautonomas_menuitem=new WebMenuItem("Comunidades autónomas");
         provincias_menuitem=new WebMenuItem("Provincias");
-        empresastransporte_menuitem=new WebMenuItem("Empresas transporte");
         secciones_menu=new WebMenuItem("Secciones");
         puestos_menu=new WebMenuItem("Puestos");
         turnos_menu=new WebMenuItem("Turnos");
@@ -172,7 +174,6 @@ public class PrincipalFrame {
         menu.add(tablas_menu);
         tablas_menu.add(comunidadesautonomas_menuitem);
         tablas_menu.add(provincias_menuitem);
-        tablas_menu.add(empresastransporte_menuitem);
         tablas_menu.add(new WebSeparator());
         tablas_menu.add(secciones_menu);
         tablas_menu.add(puestos_menu);
@@ -204,6 +205,7 @@ public class PrincipalFrame {
         editorPuestosFrame=new EditorPuestosFrame();
         editorTurnosFrame=new EditorTurnosFrame();
         editorAusenciasFrame=new EditorAusenciasFrame();
+        editorEmpresasTransporteFrame=new EditorEmpresasTransporteFrame();
         contenedores=new ContenedoresFrame();
 //        calendarioausencias=new CalendarioFrame(dbi);
         iniciaListeners();
@@ -314,6 +316,12 @@ public class PrincipalFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 editorAusenciasFrame.showFrame();
+            }
+        });
+        empresastransporte_menuitem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                editorEmpresasTransporteFrame.showFrame();
             }
         });
         lecturaContenedores_menuitem.addActionListener(new ActionListener() {

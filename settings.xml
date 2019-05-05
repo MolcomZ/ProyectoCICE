@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <setting>
     <ausenciasColorList id="1">
-        <color>-16727809</color>
+        <color>-1151892</color>
     </ausenciasColorList>
     <ausenciasColorList id="2">
-        <color>-16760672</color>
+        <color>-9227469</color>
     </ausenciasColorList>
     <ausenciasColorList id="3">
-        <color>-66051</color>
+        <color>-10582086</color>
     </ausenciasColorList>
     <ausenciasColorList id="5">
-        <color>-16728000</color>
+        <color>-6144077</color>
     </ausenciasColorList>
     <ausenciasColorList id="6">
-        <color>-2080608</color>
+        <color>-11427487</color>
     </ausenciasColorList>
-    <domingoIntColor>-4590116</domingoIntColor>
-    <sabadoIntColor>-150567</sabadoIntColor>
+    <ausenciasColorList id="7">
+        <color>-16777216</color>
+    </ausenciasColorList>
+    <domingoIntColor>-7143517</domingoIntColor>
+    <empresasColorList id="1">
+        <color>-12517568</color>
+    </empresasColorList>
+    <empresasColorList id="2">
+        <color>-12533632</color>
+    </empresasColorList>
+    <empresasColorList id="3">
+        <color>-12517377</color>
+    </empresasColorList>
+    <empresasColorList id="4">
+        <color>-16320</color>
+    </empresasColorList>
+    <sabadoIntColor>-11286</sabadoIntColor>
 </setting>

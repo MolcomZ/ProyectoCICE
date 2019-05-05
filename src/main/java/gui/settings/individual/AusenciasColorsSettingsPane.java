@@ -1,8 +1,12 @@
-package gui.settings.appearance;
+package gui.settings.individual;
 
+import com.alee.extended.colorchooser.WebColorChooserField;
+import com.alee.extended.colorchooser.WebColorPicker;
 import com.alee.extended.image.WebDecoratedImage;
+import com.alee.extended.image.WebImage;
 import com.alee.extended.layout.HorizontalFlowLayout;
 import com.alee.laf.button.WebButton;
+import com.alee.laf.colorchooser.WebColorChooser;
 import com.alee.laf.colorchooser.WebColorChooserDialog;
 import com.alee.laf.label.WebLabel;
 import com.alee.laf.panel.WebPanel;
@@ -10,30 +14,49 @@ import com.alee.utils.ImageUtils;
 import gui.PrincipalFrame;
 import jpa.ausencias.TiposAusenciaEntity;
 import jpa.ausencias.TiposAusenciaService;
+import jpa.ausenciasempleado.AusenciasEmpleadoEntity;
+import jpa.ausenciasempleado.AusenciasEmpleadoService;
 import net.miginfocom.swing.MigLayout;
+import util.EntityListener;
+import util.EntityListenerManager;
 import util.UserSettings;
 
+import javax.jws.soap.SOAPBinding;
 import javax.swing.*;
 import javax.xml.bind.JAXBException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
-public class CalendariosPane extends WebPanel {
+public class AusenciasColorsSettingsPane extends IndividualSettingsPane {
     private MigLayout layout;
-    private ColorPicker domingoPicker;
-    private ColorPicker sabadoPicker;
 
-    public CalendariosPane(){
+    TiposAusenciaService service;
+
+    public AusenciasColorsSettingsPane(){
+        super();
+        setTitle("Colores de ausencias");
         layout=new MigLayout();
-        this.setLayout(layout);
-        sabadoPicker=new ColorPicker(1L,"Sábados",PrincipalFrame.setting.getSabadoColor());
-        domingoPicker=new ColorPicker(2L,"Domingos",PrincipalFrame.setting.getDomingoColor());
+        panel.setLayout(layout);
+        service=new TiposAusenciaService(PrincipalFrame.EM);
         fillColors();
+        EntityListenerManager.addListener(TiposAusenciaEntity.class, new EntityListener() {
+            @Override
+            public void entityUpdated() {
+                fillColors();
+            }
+        });
     }
     public void saveSettings(){
-        PrincipalFrame.setting.setDomingoColor(domingoPicker.color.getRGB());
-        PrincipalFrame.setting.setSabadoColor(sabadoPicker.color.getRGB());
+        PrincipalFrame.setting.clearAusenciaColorList();
+        for(Component c:panel.getComponents()){
+            if(c instanceof ColorPicker){
+                PrincipalFrame.setting.addAusenciaColor(((ColorPicker) c).id,((ColorPicker) c).color);
+            }
+        }
         try {
             PrincipalFrame.setting.saveSettings();
         } catch (JAXBException e) {
@@ -41,11 +64,10 @@ public class CalendariosPane extends WebPanel {
         }
     }
     private void fillColors(){
-        this.removeAll();
-        sabadoPicker.setColor(PrincipalFrame.setting.getSabadoColor());
-        domingoPicker.setColor(PrincipalFrame.setting.getDomingoColor());
-        add(sabadoPicker,"WRAP");
-        add(domingoPicker,"WRAP");
+        panel.removeAll();
+        for(TiposAusenciaEntity entity:service.findAllTiposAusencias()){
+            panel.add(new ColorPicker(entity.getId(),entity.getNombre()),"WRAP");
+        }
         revalidate();
     }
 
@@ -56,15 +78,22 @@ public class CalendariosPane extends WebPanel {
         private Long id;
         private Color color;
 
-        public ColorPicker(Long id,String nombre,Color color){
+        public ColorPicker(Long id,String nombre){
             image.setRound(1);
+//            image.setImage(new ImageIcon(getClass().getResource("/a.png")).getImage());
+//            image.setDrawBorder(false);
+            //button.setUndecorated(false);
             setLayout(new HorizontalFlowLayout());
             label.setText(nombre);
-            setColor(color);
+            if( (color=PrincipalFrame.setting.getAusenciaColor(id))!=null){
+                setColor(color);
+            }else{
+                setColor(Color.WHITE);
+            }
             setPreferredSize(new Dimension(20,20));
             this.id=id;
-            add(button);
-            add(label);
+            panel.add(button);
+            panel.add(label);
             initListener();
         }
         private void initListener(){
@@ -81,6 +110,7 @@ public class CalendariosPane extends WebPanel {
         }
         public void setColor(Color color){
             this.color=color;
+
             image.setImage(ImageUtils.createColorImage(color,50,50).getSubimage(10,10,16,16));
             button.setIcon(ImageUtils.createColorIcon(color));
             button.setIcon(image.getPreviewIcon());
